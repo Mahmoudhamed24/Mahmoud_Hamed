@@ -105,6 +105,7 @@ header .user img {
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 1rem;
+    margin-top: 2rem;
     border: .7rem solid var(--yellow);
 }
 
