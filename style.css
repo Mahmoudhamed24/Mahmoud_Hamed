@@ -100,12 +100,12 @@ header {
 }
 
 header .user img {
-    height: 25rem;
-    width: 20rem;
+    height: 22rem;
+    width: 17rem;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 1rem;
-    margin-top: 2rem;
+    margin-bottom: -5rem;
+    margin-top: 0rem;
     border: .7rem solid var(--yellow);
 }
 
