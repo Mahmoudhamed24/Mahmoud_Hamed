@@ -1,228 +1,226 @@
-<div align="center">
+<img width="250" align="right" src="https://c.tenor.com/_DOBjnGspYAAAAAM/code-coding.gif" alt="coding gif">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0A0F1E,50:0D1B2A,100:1A2D4F&height=200&section=header&text=Mahmoud%20Hamed&fontSize=52&fontColor=E2F0FF&fontAlignY=38&desc=Software%20Engineer%20%E2%80%A2%20Full%20Stack%20%E2%80%A2%20Flutter%20Developer&descSize=18&descAlignY=60&descColor=7EB8F7&animation=fadeIn" />
+<h1 align="center">Hi, I'm Mahmoud Hamed Ahmed 👋</h1>
 
-<br/>
+<p align="center">
+  <a href="https://git.io/typing-svg">
+    <img
+      src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&duration=4000&pause=1000&color=14B8A6&center=true&vCenter=true&width=850&lines=Project+%26+Training+Coordinator;Python+Programming+Instructor;AI+%26+Data+Analysis+Enthusiast;Community+Engagement+%26+NGO+Operations;Building+impactful+learning+experiences"
+      alt="Typing SVG"
+    />
+  </a>
+</p>
 
-<a href="https://www.linkedin.com/in/mahmoudhamed2004/">
-  <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/>
-</a>
-&nbsp;
-<a href="https://mahmoudhamed24.github.io/Mahmoud_Hamed/">
-  <img src="https://img.shields.io/badge/Portfolio-1A2D4F?style=for-the-badge&logo=firefoxbrowser&logoColor=7EB8F7"/>
-</a>
-&nbsp;
-<a href="https://github.com/MahmoudHamed254">
-  <img src="https://img.shields.io/badge/GitHub-0D1B2A?style=for-the-badge&logo=github&logoColor=white"/>
-</a>
-&nbsp;
-<a href="mailto:YOUR_EMAIL">
-  <img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white"/>
-</a>
-
-<br/><br/>
-
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&pause=1200&color=7EB8F7&center=true&vCenter=true&width=800&lines=Building+scalable+web+%26+mobile+solutions;Turning+ideas+into+real+products;Educational+Tech+%7C+Community+Leadership;Computer+Science+Graduate+2026+%F0%9F%8E%93" />
-
-<br/>
-
-<img src="https://komarev.com/ghpvc/?username=MahmoudHamed254&style=flat-square&color=1A2D4F&label=Profile+Views"/>
-&nbsp;
-<img src="https://img.shields.io/github/followers/MahmoudHamed254?style=flat-square&color=1A2D4F&label=Followers"/>
-
-</div>
+<p align="center">
+  <a href="https://www.linkedin.com/in/mahmoudhamedahmed/" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-Mahmoud%20Hamed%20Ahmed-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" />
+  </a>
+  <a href="mailto:mahmoud.hamed.ahmed25@gmail.com">
+    <img src="https://img.shields.io/badge/Email-mahmoud.hamed.ahmed25%40gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
+  </a>
+  <a href="https://mahmoudhamed24.github.io/Mahmoud_Hamed/" target="_blank">
+    <img src="https://img.shields.io/badge/Portfolio-Live%20Website-111827?style=for-the-badge&logo=vercel&logoColor=white" />
+  </a>
+  <a href="https://github.com/Mahmoudhamed24" target="_blank">
+    <img src="https://img.shields.io/badge/GitHub-Mahmoudhamed24-181717?style=for-the-badge&logo=github&logoColor=white" />
+  </a>
+</p>
 
 ---
 
-## `$ whoami`
+## 👤 About Me
 
-```yaml
-name        : Mahmoud Hamed
-location    : Sohag, Egypt 🇪🇬
-education   : B.Sc. Computer Science — Class of 2026
-role        : Software Engineer · Full Stack · Flutter Developer
-focus       :
-  - Scalable Web Applications
-  - Cross-Platform Mobile (Flutter)
-  - Educational Technology
-  - Community Leadership & Mentorship
-currently   : Building products that matter
-open_to     : Freelance · Internships · Collaboration
-```
+I’m **Mahmoud Hamed Ahmed**, a motivated and detail-oriented professional based in **Sohag, Egypt**.  
+My background combines **project coordination, training delivery, community engagement, and technical learning**.
 
-> I'm a software engineer who moves from whiteboard to working product.  
-> I combine strong technical execution with a genuine interest in educational technology,  
-> and I believe the best code is the kind that solves a real problem for a real person.
+I currently work in **project and training coordination** and have experience supporting:
+- training logistics,
+- attendance tracking,
+- documentation,
+- stakeholder communication,
+- on-site and remote program delivery,
+- community and NGO activities.
 
----
+I also have a strong technical foundation in:
+- **Python**
+- **AI / Data Analysis**
+- **NumPy / Pandas**
+- **Scikit-Learn**
+- **Jupyter Notebook**
+- **PyCharm**
+- **Git / GitHub**
 
-## ⚡ What I Build
-
-<table>
-<tr>
-<td width="50%">
-
-### 🌐 Full Stack Web
-End-to-end web applications with clean architecture — React frontends, Node.js backends, and well-designed REST APIs. From MVPs to production systems.
-
-</td>
-<td width="50%">
-
-### 📱 Flutter Mobile
-Cross-platform iOS & Android apps with a native feel. Clean state management, smooth UX, and Firebase integration.
-
-</td>
-</tr>
-<tr>
-<td width="50%">
-
-### 🎓 Educational Technology
-Purpose-built platforms for schools, training programs, and edtech startups. Teacher tracking, assessment systems, analytics dashboards.
-
-</td>
-<td width="50%">
-
-### 📊 Dashboards & Analytics
-Data-driven admin panels and reporting tools. Real-time insights for educational institutions and operations teams.
-
-</td>
-</tr>
-</table>
+I enjoy turning structure into results, helping people learn, and building useful digital experiences.
 
 ---
 
-## 🏗️ Featured Projects
+## 🚀 What I Do
 
-### 🔵 Teacher Follow-up System
-> *An end-to-end educational management platform*
-
-A comprehensive solution for educational administrations to supervise, track, and report on teacher performance — replacing manual spreadsheets with a structured digital workflow.
-
-| Feature | Details |
-|---|---|
-| 👤 Teacher Profiles | Complete records with subject, class, attendance history |
-| 📋 Supervisor Dashboard | Real-time follow-up and field visit logs |
-| 📊 Reports & Analytics | Exportable performance reports and KPI summaries |
-| 🏫 Multi-school Support | Scalable across entire educational districts |
+- Coordinate training and project activities
+- Support live and remote sessions
+- Manage schedules, reports, and records
+- Communicate with trainers, participants, and partners
+- Teach Python and programming fundamentals
+- Work on AI and data-analysis learning paths
+- Contribute to youth and community initiatives
+- Build and maintain GitHub projects and portfolios
 
 ---
 
-### 🟣 Skillak Platform
-> *A marketplace connecting skilled professionals with learners*
+## 💼 Current Focus
 
-A two-sided marketplace where trainers, mentors, and professionals list their expertise and learners book sessions — think Calendly meets a skills exchange.
-
-| Feature | Details |
-|---|---|
-| 📅 Session Booking | Real-time availability and slot reservation |
-| 🧠 Skill Marketplace | Browse and filter professionals by domain |
-| ⭐ Reviews & Ratings | Trust-building review system |
-| 🎯 Learner Profiles | Progress tracking and session history |
+- **Project Coordination**
+- **Training Operations**
+- **Python Programming Instruction**
+- **AI and Data Analysis**
+- **NGO / Community Development**
+- **Digital Transformation**
+- **Portfolio & Personal Brand Building**
 
 ---
 
-### 🟢 Educational Analytics Dashboard
-> *Turning raw attendance and performance data into actionable insights*
+## 🏆 Highlights
 
-Advanced data visualization layer over institutional data — helping administrators make informed decisions about students, staff, and programs.
+- Coordinated **3+ concurrent programs** remotely
+- Served as the main on-site coordinator for the **MCIT Digital Egypt Cubs Initiative**
+- Delivered Python training to **50+ students**
+- Supported **50+ learners** as a **CS50 Facilitator**
+- Completed the **Samsung Innovation Campus AI Program**
+- Worked with **EYouth**, **Career 180 & NTI**, **Abwaab**, **Life Makers**, **Creativa Hub**, and **TIEC**
 
 ---
 
-### 🟡 Personal Portfolio
-> *[mahmoudhamed24.github.io/Mahmoud_Hamed](https://mahmoudhamed24.github.io/Mahmoud_Hamed/)*
+## 🧠 Professional Experience
 
-A living showcase of projects, experience, leadership journey, and technical growth.
+### 🟩 Project Coordinator — EYouth
+- Part-time coordinator for the **Digital Egypt Cubs Initiative**
+- Daily training operations, equipment checks, room setup, attendance tracking, and follow-up
+- Coordination with trainers, participants, and management
+
+### 🟦 Project Coordinator — EYouth
+- Remote project coordination
+- Tracking milestones for multiple programs
+- Reports, communication, and documentation
+
+### 🟨 Training Coordinator — Career 180 & NTI
+- Coordinated training sessions for the Web Designer track
+- Managed logistics, session setup, and participant communication
+
+### 🟪 Online Programming Instructor
+- Delivered Python courses to 50+ students
+- Built exercises, labs, assessments, and one-on-one mentoring support
+
+### 🟧 Student Coordinator — Abwaab Egypt
+- Supported student onboarding, registration, and issue resolution
+- Maintained engagement records and follow-ups
+
+### 🟫 Library Assistant — El Daheeh Library
+- Sales support, printing, documentation, data entry, and basic bookkeeping
+
+---
+
+## 🎓 Education
+
+- **Bachelor of Education — Mathematics Department**
+- **Faculty of Education, Sohag University**
+- **Expected Graduation: 2026**
+
+---
+
+## 📚 Training & Certifications
+
+- **Artificial Intelligence Program** — Samsung Innovation Campus  
+  Python, NumPy, Pandas, EDA, machine learning basics
+
+- **Python Programming** — Samsung Innovation Campus  
+  Variables, functions, loops, OOP, problem solving
+
+- **Front-end Development** — GDSC Sohag  
+  HTML, CSS, JavaScript basics
+
+- **CS50 Facilitator** — Cipher & Ma3refa  
+  Scratch, Python, C, C++
 
 ---
 
 ## 🛠️ Tech Stack
 
-### Frontend
-<p>
-<img src="https://skillicons.dev/icons?i=html,css,js,ts,react,tailwind,bootstrap&theme=dark" />
-</p>
+### Programming & Data
+![Python](https://img.shields.io/badge/-Python-05122A?style=flat&logo=python)
+![NumPy](https://img.shields.io/badge/-NumPy-05122A?style=flat&logo=numpy)
+![Pandas](https://img.shields.io/badge/-Pandas-05122A?style=flat&logo=pandas)
+![Scikit--Learn](https://img.shields.io/badge/-Scikit--Learn-05122A?style=flat&logo=scikitlearn)
+![Jupyter](https://img.shields.io/badge/-Jupyter-05122A?style=flat&logo=jupyter)
+![PyCharm](https://img.shields.io/badge/-PyCharm-05122A?style=flat&logo=pycharm)
+![Git](https://img.shields.io/badge/-Git-05122A?style=flat&logo=git)
+![GitHub](https://img.shields.io/badge/-GitHub-05122A?style=flat&logo=github)
 
-### Mobile
-<p>
-<img src="https://skillicons.dev/icons?i=flutter,dart&theme=dark" />
-</p>
+### Coordination & Productivity
+![Microsoft Office](https://img.shields.io/badge/-Microsoft%20Office-05122A?style=flat&logo=microsoftoffice)
+![Excel](https://img.shields.io/badge/-Excel-05122A?style=flat&logo=microsoftexcel)
+![Google Sheets](https://img.shields.io/badge/-Google%20Sheets-05122A?style=flat&logo=googlesheets)
+![Google Workspace](https://img.shields.io/badge/-Google%20Workspace-05122A?style=flat&logo=google)
+![Zoom](https://img.shields.io/badge/-Zoom-05122A?style=flat&logo=zoom)
+![Microsoft Teams](https://img.shields.io/badge/-Teams-05122A?style=flat&logo=microsoftteams)
 
-### Backend & Database
-<p>
-<img src="https://skillicons.dev/icons?i=nodejs,express,firebase,mysql,mongodb&theme=dark" />
-</p>
-
-### Languages
-<p>
-<img src="https://skillicons.dev/icons?i=js,ts,dart,python,cpp&theme=dark" />
-</p>
-
-### Tools & Workflow
-<p>
-<img src="https://skillicons.dev/icons?i=git,github,vscode,figma,postman&theme=dark" />
-</p>
+### Web Basics
+![HTML](https://img.shields.io/badge/-HTML-05122A?style=flat&logo=html5)
+![CSS](https://img.shields.io/badge/-CSS-05122A?style=flat&logo=css3&logoColor=1572B6)
+![JavaScript](https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript)
 
 ---
 
-## 📊 GitHub Analytics
+## 🤝 Community & Volunteering
 
-<div align="center">
+### TIEC Ambassador | Coordinator
+- Coordinated community tech events and workshops
+- Supported local innovators and students
 
-<img height="175em" src="https://github-readme-stats.vercel.app/api?username=MahmoudHamed254&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=7EB8F7&icon_color=7EB8F7&text_color=E2F0FF"/>
-&nbsp;
-<img height="175em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=MahmoudHamed254&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=7EB8F7&text_color=E2F0FF"/>
+### Life Makers Sohag | Accounts Officer
+- Managed donation accounts and financial summaries
+- Helped maintain transparency and record accuracy
 
-<br/>
+### Cipher & Ma3refa | CS50 Facilitator
+- Delivered structured training in Scratch, Python, C, and C++
+- Helped learners build problem-solving confidence
 
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=MahmoudHamed254&theme=tokyonight&hide_border=true&background=0D1117&stroke=7EB8F7&ring=7EB8F7&fire=FF6B6B&currStreakLabel=7EB8F7"/>
-
-</div>
-
----
-
-## 🌍 Leadership & Community
-
-### Digital Egypt Cubs — Training Coordinator
-Leading training operations for one of Egypt's national digital youth initiatives:
-
-- 🗂️ **Operations** — Managed end-to-end training logistics across multiple cohorts
-- 📋 **Attendance & Reporting** — Built and maintained systems for learner tracking
-- 🤝 **Team Coordination** — Led cross-functional volunteer teams
-- 🎤 **Mentorship** — Delivered technical sessions and guided learners through their journeys
-- 🛠️ **Technical Support** — First-line problem solver for training infrastructure
-
-> This experience shaped how I think about systems, people, and impact at scale.
+### Athar | Problem Solving Facilitator
+- Delivered C++ workshops
+- Supported algorithmic thinking and competitive programming basics
 
 ---
 
-## 🎯 2026 Roadmap
+## 📂 Featured Projects
 
-```
-[ ] Launch at least one SaaS product
-[ ] Deepen AI/ML integration in edtech projects
-[ ] Contribute meaningfully to open source
-[ ] Secure a strong software engineering role or internship
-[ ] Build something that 1,000+ people use
-[ ] Grow as a technical leader and mentor
-```
+> My featured GitHub repositories appear at the top of my portfolio automatically.  
+> I build projects in education, training, coordination, and technical learning.
+
+You can find my work here:
+- GitHub: [Mahmoudhamed24](https://github.com/Mahmoudhamed24)
+- Portfolio: [mahmoudhamed24.github.io/Mahmoud_Hamed/](https://mahmoudhamed24.github.io/Mahmoud_Hamed/)
 
 ---
 
-## 🧭 Areas of Deep Interest
+## 🌍 Languages
 
-`Artificial Intelligence` · `Educational Technology` · `Flutter & Dart` · `Full Stack Architecture`  
-`Product Thinking` · `Open Source` · `Digital Transformation` · `Startups`
+- **Arabic:** Native
+- **English:** B1 — Intermediate
 
 ---
 
-<div align="center">
+## 📫 Contact Me
 
-<br/>
+- **Email:** [mahmoud.hamed.ahmed25@gmail.com](mailto:mahmoud.hamed.ahmed25@gmail.com)
+- **LinkedIn:** [linkedin.com/in/mahmoudhamedahmed](https://www.linkedin.com/in/mahmoudhamedahmed/)
+- **Portfolio:** [mahmoudhamed24.github.io/Mahmoud_Hamed/](https://mahmoudhamed24.github.io/Mahmoud_Hamed/)
+- **GitHub:** [github.com/Mahmoudhamed24](https://github.com/Mahmoudhamed24)
 
-*"The best software isn't the most complex — it's the one that actually gets used."*
+---
 
-<br/>
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=Mahmoudhamed24&style=for-the-badge" alt="Profile views" />
+</p>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1A2D4F,50:0D1B2A,100:0A0F1E&height=120&section=footer&text=Let%27s%20build%20something%20together&fontSize=18&fontColor=7EB8F7&fontAlignY=65&animation=fadeIn"/>
-
-</div>
+<p align="center">
+  <i>Turning coordination, teaching, and technology into meaningful impact.</i>
+</p>
