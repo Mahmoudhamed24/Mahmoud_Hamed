@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>محمود حامد أحمد | Portfolio</title>
+  <meta name="description" content="بورتفوليو احترافي لمحمود حامد أحمد: Project & Program Coordinator، مدرّب Python، وممارس AI/Data من سوهاج. يعرض الخبرات والمهارات والشهادات والمشاريع والمواد التعليمية بشكل منظّم." />
+  <meta name="author" content="Mahmoud Hamed Ahmed" />
+  <meta name="theme-color" content="#0f1720" />
+  <meta property="og:title" content="محمود حامد أحمد — Portfolio" />
+  <meta property="og:description" content="منسّق مشاريع وبرامج، مدرّب Python، وممارس AI/Data. تعرّف على الخبرات والمهارات والمواد والمشاريع." />
+  <meta property="og:type" content="profile" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Reem+Kufi:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="ambient" aria-hidden="true">
+    <div class="glow glow-emerald float-slow"></div>
+    <div class="glow glow-gold float-slow delay-1"></div>
+  </div>
+
+  <div class="layout">
+    <header class="topbar glass">
+      <div class="topbar-id">
+      <div class="avatar-wrap">
+        <div class="avatar-glow"></div>
+        <img src="assets/mahmoud.jpg" alt="Mahmoud Hamed Ahmed" class="avatar" />
+      </div>
+        <div class="topbar-meta">
+          <span class="topbar-name">محمود حامد أحمد</span>
+          <span class="topbar-role">Project & Program Coordinator • Python Instructor</span>
+        </div>
+      </div>
+      <button class="icon-btn" id="open-menu" aria-label="فتح القائمة" aria-expanded="false">☰</button>
+    </header>
+
+    <div class="drawer-overlay" id="drawer" hidden>
+      <div class="drawer-backdrop" id="drawer-backdrop"></div>
+      <aside class="drawer-panel glass" aria-label="القائمة الجانبية">
+        <button class="icon-btn drawer-close" id="close-menu" aria-label="إغلاق القائمة">✕</button>
+        <div class="sidebar-inner" id="sidebar-inner"></div>
+      </aside>
+    </div>
+
+    <main class="main">
+      <section id="home" class="hero">
+        <span class="badge"><span class="dot pulse"></span> متاح للفرص والتعاون</span>
+        <h1 class="hero-title">
+          أحوّل التنسيق والتدريب والبرمجة
+          <br class="hide-mobile" />
+          إلى <span class="text-gradient">نتائج واضحة ومرتبة</span>.
+        </h1>
+        <p class="hero-sub" id="hero-sub"></p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">شاهد المشاريع <span>←</span></a>
+          <a href="#resources" class="btn btn-outline">📚 المواد والملفات</a>
+          <a href="mailto:mahmoud.hamed.ahmed25@gmail.com" class="btn btn-outline">✉ تواصل مباشرة</a>
+        </div>
+        <div class="stats-grid" id="stats"></div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="section-head">
+          <span class="kicker">نبذة</span>
+          <h2 class="section-title">ملف مهني شامل ومحدّث</h2>
+          <div class="rule"></div>
+        </div>
+        <div class="about-grid">
+          <div class="card about-summary" id="summary"></div>
+          <div class="about-side" id="about-side"></div>
+        </div>
+      </section>
+
+      <section id="experience" class="section">
+        <div class="section-head">
+          <span class="kicker">الخبرات</span>
+          <h2 class="section-title">مسار عملي متنوع</h2>
+          <div class="rule"></div>
+        </div>
+        <div class="timeline" id="experience-list"></div>
+        <h3 class="sub-heading">التدريب الميداني (Internships)</h3>
+        <div class="timeline" id="internships-list"></div>
+      </section>
+
+      <section id="skills" class="section">
+        <div class="section-head">
+          <span class="kicker">المهارات</span>
+          <h2 class="section-title">ما أستخدمه وأتقنه</h2>
+          <div class="rule"></div>
+        </div>
+        <div class="skills-grid" id="skills-grid"></div>
+        <h3 class="sub-heading">التدريب والشهادات</h3>
+        <div class="courses-grid" id="courses-grid"></div>
+      </section>
+
+      <section id="resources" class="section">
+        <div class="section-head">
+          <span class="kicker">المواد والملفات</span>
+          <h2 class="section-title">سيرة ذاتية، وروابط مهمة</h2>
+          <div class="rule"></div>
+        </div>
+        <div class="resources-grid" id="resources-grid"></div>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="section-head">
+          <span class="kicker">GitHub</span>
+          <h2 class="section-title">مشاريعي على GitHub</h2>
+          <div class="rule"></div>
+        </div>
+
+        <div class="projects-note card">
+          <div>
+            <strong>المشاريع المميزة تظهر أولًا</strong>
+            <p>يعرض الموقع كل مستودعات GitHub الخاصة بي تلقائيًا، مع إبراز المشاريع المميزة في الأعلى بحسب القائمة المحدّدة داخل الكود.</p>
+          </div>
+        </div>
+
+        <div class="projects-controls">
+          <div class="search-wrap">
+            <span class="search-icon">🔍</span>
+            <input id="search" placeholder="ابحث في المشاريع..." />
+          </div>
+          <button class="btn-chip" id="refresh">⟳ تحديث المشاريع</button>
+        </div>
+
+        <div class="lang-filters" id="lang-filters"></div>
+
+        <div class="projects-section-head">
+          <h3 class="mini-title">المشاريع المميزة</h3>
+          <span class="mini-badge" id="featured-count"></span>
+        </div>
+        <div class="projects-grid featured-grid" id="featured-projects-grid"></div>
+
+        <div class="projects-section-head">
+          <h3 class="mini-title">كل المشاريع</h3>
+          <span class="mini-badge" id="projects-count"></span>
+        </div>
+        <div class="projects-grid" id="projects-grid"></div>
+      </section>
+
+      <section id="volunteering" class="section">
+        <div class="section-head">
+          <span class="kicker">التطوع والمجتمع</span>
+          <h2 class="section-title">أثر يتجاوز العمل</h2>
+          <div class="rule"></div>
+        </div>
+        <div class="volunteer-grid" id="volunteer-grid"></div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="section-head">
+          <span class="kicker">تواصل</span>
+          <h2 class="section-title">لنبدأ من هنا</h2>
+          <div class="rule"></div>
+        </div>
+        <div class="contact-grid">
+          <div class="card contact-info" id="contact-info"></div>
+          <form class="card contact-form" action="https://formspree.io/f/xrgvyqop" method="POST">
+            <input name="Name" required placeholder="الاسم" class="field" />
+            <input name="Email" type="email" required placeholder="البريد الإلكتروني" class="field" />
+            <input name="Subject" placeholder="الموضوع" class="field" />
+            <textarea name="Message" rows="5" required placeholder="اكتب رسالتك هنا..." class="field"></textarea>
+            <button type="submit" class="btn btn-primary"> إرسال الرسالة</button>
+          </form>
+        </div>
+        <p class="footer" id="footer"></p>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
