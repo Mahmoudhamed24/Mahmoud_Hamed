@@ -1,0 +1,10 @@
+name = "mahmoud-portfolio-admin-api"
+main = "worker.js"
+compatibility_date = "2026-11-08"
+
+[vars]
+GITHUB_OWNER = "Mahmoudhamed24"
+GITHUB_REPO = "Mahmoud_Hamed"
+GITHUB_BRANCH = "main"
+GITHUB_CONTENT_PATH = "content.json"
+ALLOWED_ORIGINS = "https://mahmoudhamed24.github.io,http://localhost:8000,http://127.0.0.1:8000"

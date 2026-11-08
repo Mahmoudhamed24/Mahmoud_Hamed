@@ -1,0 +1,11 @@
+PRIVATE ADMIN QUICK START
+
+1. Read ADMIN_SETUP.md.
+2. Create a GitHub fine-grained token limited to repository Mahmoud_Hamed with Contents: Read and write only.
+3. Deploy admin-worker/ to Cloudflare Workers.
+4. Set ADMIN_PASSWORD, SESSION_SECRET and GITHUB_TOKEN using `wrangler secret put` (enter secrets in the terminal, not in code).
+5. Put the deployed Worker URL in admin-config.js.
+6. Upload the portfolio folder to the root of the Mahmoud_Hamed GitHub Pages repository.
+7. Open https://mahmoudhamed24.github.io/Mahmoud_Hamed/admin.html
+
+The admin page can manage selected projects and GitHub repository visibility, and edit all site data in content.json.

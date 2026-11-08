@@ -78,3 +78,13 @@ Edit the content arrays near the top of `script.js`: experience, teaching, Life 
 
 ## GitHub repositories
 The projects area retrieves every public repository from the configured GitHub account using API pagination. It includes forks, pins selected repositories first, and supports search, language filters, sorting, and manual refresh. Published website links appear only when GitHub returns a configured Homepage or `has_pages: true`; unpublished repositories keep their source-code link only.
+
+## Private Admin Panel
+
+A hidden admin route is available at `admin.html` (not linked from public navigation). It is protected by a Cloudflare Worker; the password and GitHub token must never be placed in the public JavaScript files. Follow `ADMIN_SETUP.md` to deploy the Worker and set the secrets.
+
+The admin panel can add/edit/show/hide/delete selected projects, pin or hide GitHub repositories, and edit all data sections stored in `content.json`. Saving through the panel commits `content.json` to the configured GitHub repository, after which GitHub Pages publishes the update.
+
+## Website screenshot previews
+
+For projects with a published URL, cards request a rendered screenshot through WordPress mShots and retry once after a short delay because the service may initially return a temporary generation placeholder. A second screenshot provider is used as a fallback. Some target sites may block external screenshot services; in that case, add a manually hosted image URL to the project's `previewImage` field in `content.json` or through the admin project editor.

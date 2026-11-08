@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="theme-color" content="#07111f">
+  <title>لوحة إدارة البورتفوليو | Mahmoud Hamed Ahmed</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div class="admin-bg"></div>
+  <header class="admin-topbar">
+    <a href="./" class="admin-brand"><span class="brand-photo"><img src="assets/mahmoud.jpg" alt="Mahmoud Hamed Ahmed"></span><span><b>Portfolio Control</b><small>PRIVATE ADMINISTRATION</small></span></a>
+    <div class="top-actions"><a class="back-link" href="./">عرض الموقع ↗</a><button id="logout-button" class="button button-quiet" hidden>تسجيل الخروج</button></div>
+  </header>
+
+  <main class="admin-shell">
+    <section id="login-view" class="login-card">
+      <div class="login-mark">M<span>HA</span></div>
+      <span class="eyebrow">PRIVATE ACCESS / 01</span>
+      <h1>أهلًا بعودتك.</h1>
+      <p>سجّل الدخول لإدارة محتوى البورتفوليو ومشروعات GitHub. لوحة الإدارة غير ظاهرة في قائمة الموقع.</p>
+      <form id="login-form">
+        <label for="admin-password">كلمة مرور الإدارة</label>
+        <div class="password-wrap"><input id="admin-password" name="password" type="password" autocomplete="current-password" required placeholder="أدخل كلمة المرور"><button id="toggle-password" type="button" aria-label="إظهار كلمة المرور">◉</button></div>
+        <button class="button button-primary full" type="submit" id="login-submit">دخول لوحة الإدارة <span>↗</span></button>
+      </form>
+      <div class="notice" id="login-status" role="status" aria-live="polite"></div>
+      <small class="security-note">المصادقة وحفظ التعديلات يتمان عبر خدمة خلفية؛ كلمة المرور لا تُحفظ داخل ملفات الموقع.</small>
+    </section>
+
+    <section id="dashboard-view" hidden>
+      <div class="dashboard-heading">
+        <div><span class="eyebrow">CONTROL CENTER / 2026</span><h1>إدارة البورتفوليو</h1><p>تحكم في المشروعات الظاهرة، ومستودعات GitHub، ومحتوى الموقع بالكامل.</p></div>
+        <button class="button button-primary" id="save-all">حفظ ونشر التعديلات <span>↑</span></button>
+      </div>
+      <div class="dashboard-stats"><article><strong id="stat-projects">0</strong><span>مشروعات مختارة</span></article><article><strong id="stat-visible">0</strong><span>مشروعات ظاهرة</span></article><article><strong id="stat-hidden">0</strong><span>مشروعات مخفية</span></article><article><strong id="stat-repos">0</strong><span>إعدادات مستودعات</span></article></div>
+      <div class="admin-status" id="save-status" role="status" aria-live="polite">جاهز لإدارة محتوى الموقع.</div>
+
+      <nav class="admin-tabs" aria-label="أقسام الإدارة">
+        <button class="admin-tab active" data-tab="projects">المشروعات المختارة</button>
+        <button class="admin-tab" data-tab="repositories">مستودعات GitHub</button>
+        <button class="admin-tab" data-tab="content">محتوى الموقع بالكامل</button>
+      </nav>
+
+      <section class="tab-panel active" id="tab-projects">
+        <div class="panel-heading"><div><h2>إضافة وإدارة المشروعات</h2><p>أضف مشروعًا جديدًا أو عدّل بياناته أو أخفه مؤقتًا دون حذفه.</p></div><button class="button button-secondary" id="new-project">＋ مشروع جديد</button></div>
+        <div class="project-admin-layout">
+          <form class="editor-card" id="project-form">
+            <div class="editor-heading"><span class="eyebrow">PROJECT EDITOR</span><h3 id="project-form-title">إضافة مشروع</h3><p>الحقول المعلّمة بنجمة مطلوبة.</p></div>
+            <input type="hidden" id="project-index" value="-1">
+            <label>اسم المشروع *</label><input id="project-title" required maxlength="140" placeholder="MAILFORGE 2.0">
+            <label>التصنيف الظاهر</label><input id="project-category" maxlength="100" placeholder="WEB PLATFORM · AI & AUTOMATION">
+            <label>وصف المشروع *</label><textarea id="project-text" rows="4" required maxlength="1400" placeholder="اكتب وصفًا واضحًا للمشروع..."></textarea>
+            <label>حالة المشروع</label><input id="project-status" maxlength="120" placeholder="Live Product / Prototype / In Development">
+            <div class="field-grid"><div><label>تصنيف الفلتر</label><select id="project-category-id"><option value="web">Web & Platforms</option><option value="data">Data & AI</option><option value="education">Education & EdTech</option><option value="community">Community</option><option value="operations">Operations</option></select></div><div><label>مطابقة مستودع GitHub</label><input id="project-github-match" placeholder="mailforge أو owner/repo"></div></div>
+            <label>رابط المشروع / التجربة</label><input id="project-link" type="url" placeholder="https://example.com">
+            <label>عنوان زر الرابط</label><input id="project-link-label" placeholder="جرّب المشروع ↗">
+            <label>رابط المعاينة المنشورة (اختياري)</label><input id="project-preview-url" type="url" placeholder="https://username.github.io/project/">
+            <label>رابط صورة المعاينة (اختياري)</label><input id="project-preview-image" type="url" placeholder="https://.../screenshot.png">
+            <label>رابط إضافي</label><input id="project-secondary-link" type="url" placeholder="https://...">
+            <label>عنوان الرابط الإضافي</label><input id="project-secondary-label" placeholder="صفحة المنتج الرسمية ↗">
+            <label class="check-line"><input id="project-visible" type="checkbox" checked> إظهار المشروع في البورتفوليو</label>
+            <div class="form-actions"><button class="button button-primary" type="submit">حفظ المشروع في القائمة</button><button class="button button-quiet" type="button" id="cancel-project-edit">إلغاء</button></div>
+          </form>
+          <div class="project-list-wrap"><div class="list-toolbar"><input type="search" id="project-search" placeholder="ابحث في المشروعات..."><span id="project-list-count"></span></div><div id="project-admin-list" class="project-admin-list"></div></div>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="tab-repositories" hidden>
+        <div class="panel-heading"><div><h2>التحكم في مستودعات GitHub</h2><p>أخفِ مستودعًا من العرض العام أو ثبّته ضمن المشروعات المميزة.</p></div></div>
+        <div class="repo-admin-add"><label for="repo-name-input">اسم المستودع أو owner/repository</label><div><input id="repo-name-input" placeholder="Mahmoudhamed24/project-name"><button class="button button-secondary" id="repo-feature-add" type="button">＋ تثبيت كمشروع مميز</button><button class="button button-quiet" id="repo-hide-add" type="button">إخفاء المستودع</button></div><small>يمكن إدخال اسم المستودع حتى لو لم يظهر في قائمة GitHub المحمّلة بعد.</small></div>
+        <div class="repo-settings-grid"><article class="editor-card"><h3>المشروعات المثبتة أولًا</h3><p>تظهر هذه المستودعات في بداية معرض GitHub.</p><div id="featured-repo-list" class="token-list"></div></article><article class="editor-card"><h3>المستودعات المخفية</h3><p>لن تظهر هذه المستودعات للزوار، لكنها تظل موجودة على GitHub.</p><div id="hidden-repo-list" class="token-list"></div></article></div>
+      </section>
+
+      <section class="tab-panel" id="tab-content" hidden>
+        <div class="panel-heading"><div><h2>محرر محتوى الموقع بالكامل</h2><p>تحكم متقدم في النبذة والخبرات وصناع الحياة والمهارات والدورات والرحلة والمشروعات والإعدادات من ملف المحتوى الموحد.</p></div></div>
+        <article class="editor-card json-editor"><div class="json-head"><div><h3>content.json</h3><small>Advanced editor · JSON</small></div><button class="button button-quiet" id="format-json" type="button">تنسيق JSON</button></div><textarea id="content-json-editor" spellcheck="false" dir="ltr" aria-label="محرر JSON الكامل"></textarea><div class="json-actions"><button class="button button-secondary" id="validate-json" type="button">التحقق من صحة المحتوى</button><span id="json-validation" role="status"></span></div><p class="security-note">هذا المحرر يتيح تعديل جميع أقسام content.json. حافظ على بنية JSON الصحيحة حتى لا تتعطل أجزاء الموقع.</p></article>
+      </section>
+
+      <footer class="admin-footer"><span>MAHMOUD HAMED AHMED · PRIVATE ADMIN</span><a href="./">العودة إلى الموقع ↗</a></footer>
+    </section>
+  </main>
+  <script src="admin-config.js"></script>
+  <script src="admin.js" defer></script>
+</body>
+</html>

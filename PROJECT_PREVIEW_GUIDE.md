@@ -1,13 +1,41 @@
-# GitHub projects and live links
+# Project Preview Guide
 
-The portfolio fetches all public repositories owned by `Mahmoudhamed24` from the GitHub REST API. It paginates through the complete list (100 repositories per request), includes forks, merges duplicate repository identifiers, and saves a local browser cache for offline fallback.
+The portfolio has two separate project collections:
 
-## Display behavior
-- Featured repositories are pinned above the rest, including MailForge-related repositories when a public repository name matches `mailforge`.
-- Every repository card shows its GitHub OpenGraph cover, name, description, primary language, star/fork counts, and last update date.
-- Search, language filters, sorting, and manual refresh are available.
-- The **Open published website** action is displayed only when the repository has a valid `homepage` URL or GitHub Pages is enabled (`has_pages === true`). It opens the published site in a new tab.
-- Repositories without a published site show the source-code link only; the site does not invent a preview URL.
+1. **Selected work** — manually curated projects from `content.json` (for example MAILFORGE 2.0, Makers Journey, Shifaa & Rahma, Skillak Hub, PlastiCash, Telecom Churn, and the learning/research projects).
+2. **GitHub repository gallery** — all public repositories discovered automatically from the GitHub account, page by page, with search, language filters, sorting, featured-first ordering, and manual refresh.
 
-## MailForge 2.0
-MailForge 2.0 is highlighted in Selected Work as an email-marketing and automation platform: campaign creation and management, professional email design, audience organization and segmentation, AI-assisted Arabic content, automation and smart resend, campaign analytics, and Gmail/Outlook integration. The card links to the public MailForge by Skillak page and its trial link. If a public GitHub repository containing `mailforge` is returned by the API, the card automatically adds the repository link and any published Pages link.
+## Live website screenshots
+
+For a repository with a valid `homepage` URL or a GitHub Pages website, the project card uses a screenshot service to capture the **actual published destination page** rather than displaying GitHub metadata as the image. The image is clickable and opens the published website in a separate tab.
+
+The primary screenshot endpoint is WordPress mShots. It can return a temporary placeholder while it generates a first screenshot, so the portfolio requests the same destination again after a short delay. A secondary provider is attempted if the first provider fails. Some sites may block automated screenshot services; the fallback state preserves the real website link.
+
+The selected-project editor also accepts a manually hosted screenshot URL in `previewImage`. Use this when you have a high-quality project screenshot or a website blocks automated capture.
+
+## GitHub Pages detection
+
+For each public repository, the page uses:
+
+1. The repository's configured `homepage` field when it is a valid HTTP(S) URL.
+2. The conventional GitHub Pages URL when GitHub reports Pages enabled.
+3. A documented demo URL for a curated project that has a `githubMatch` field.
+
+A repository without a published destination remains a source-code card. The site does not pretend that a repository is a live website.
+
+## Featured and hidden repositories
+
+`content.json` includes:
+
+- `featuredRepositories`: repository names or full `owner/repository` names to pin at the top.
+- `hiddenRepositories`: repository names or full names to omit from the public gallery.
+
+Manage both lists from the private `admin.html` panel or edit the JSON directly through the advanced editor.
+
+## Add a selected project
+
+Use `admin.html` → **المشروعات المختارة** → **مشروع جديد**. You can set title, description, status, category, live link, preview URL, screenshot image URL, and matching GitHub repository. Toggle visibility, then save and publish.
+
+## Security note
+
+The admin page is not linked from the public navigation, but its URL is not secret. Access is enforced by the Cloudflare Worker. Do not put the admin password or GitHub token in frontend files.

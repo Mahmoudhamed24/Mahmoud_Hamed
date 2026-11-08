@@ -1,0 +1,552 @@
+{
+  "profile": {
+    "name": "محمود حامد أحمد",
+    "nameEn": "Mahmoud Hamed Ahmed",
+    "email": "mahmoud.hamed.ahmed25@gmail.com",
+    "phone": "+201004959936",
+    "location": "سوهاج، مصر",
+    "github": "https://github.com/Mahmoudhamed24",
+    "linkedin": "https://www.linkedin.com/in/mahmoudhamedahmed/",
+    "portfolio": "https://mahmoudhamed24.github.io/Mahmoud_Hamed/",
+    "avatarUrl": "assets/mahmoud.jpg",
+    "cvUrl": "assets/Mahmoud_Hamed_Ahmed_Master_CV_2026_Updated.pdf",
+    "title": "Project & Program Coordinator | Training Operations",
+    "tagline": "Building Skills. Managing Projects. Creating Impact.",
+    "phoneDisplay": "+20 100 495 9936"
+  },
+  "experience": [
+    {
+      "role": "Sales & Customer Support Representative",
+      "org": "FastKeys — Digital Software Products",
+      "period": "October 2026 – Present",
+      "meta": "Customer Support · Sales Operations · Digital Products",
+      "points": [
+        "الرد على استفسارات العملاء بشأن مفاتيح وتراخيص المنتجات الرقمية، ومنها Windows وMicrosoft Office وبرامج مكافحة الفيروسات.",
+        "شرح خيارات المنتجات ومتطلبات التوافق وخطوات الشراء والتثبيت والتفعيل.",
+        "متابعة الطلبات بعد الشراء، ومساعدة العملاء في معالجة مشكلات التفعيل والاستخدام الشائعة.",
+        "تقديم إرشادات تقنية واضحة ومتابعة طلبات العملاء حتى الوصول إلى حل مناسب."
+      ]
+    },
+    {
+      "role": "Project Coordinator – Digital Egypt Cubs Initiative (Part-time)",
+      "org": "EYouth",
+      "period": "May 2026 – Present",
+      "meta": "Sohag, Egypt · Training Operations",
+      "points": [
+        "تنسيق العمليات اليومية للتدريب ودعم تنفيذ أنشطة مبادرة أشبال مصر الرقمية التابعة لوزارة الاتصالات وتكنولوجيا المعلومات (MCIT).",
+        "تنظيم الجداول والتنسيق مع المدربين والمشاركين ومتابعة جاهزية الجلسات والقاعة والاحتياجات التشغيلية.",
+        "متابعة الحضور وسجلات المشاركين والبيانات التشغيلية باستخدام Excel وGoogle Workspace.",
+        "إعداد التقارير ومتابعة المهام المفتوحة والمشكلات التشغيلية وتيسير التواصل بين الأطراف المعنية.",
+        "دعم الورش والتقييمات والأنشطة التعليمية ومتابعة سيرها وفق الجدول المحدد."
+      ]
+    },
+    {
+      "role": "Project Coordinator Intern – Innovation Support / InnovEgypt",
+      "org": "ITIDA – Information Technology Industry Development Agency",
+      "period": "August 2026 – October 2026",
+      "meta": "TIEC, Smart Village, Cairo · Hybrid · ITIDA Summer Internship Program",
+      "points": [
+        "دعم تنسيق وتنفيذ أنشطة InnovEgypt ومتابعة المتطلبات التشغيلية اليومية.",
+        "تنظيم التوثيق والتقارير الفنية والتشغيلية ومتابعة المهام المسندة.",
+        "دعم التواصل مع الطلاب والمشاركين عبر القنوات الرقمية وصفحة البرنامج.",
+        "المساهمة في تصميم وتنفيذ تجربة إطار رقمي مرتبطة بالاحتفال والتخرج، ودعم تنظيم فعالية التخرج.",
+        "التنسيق مع الفريق لدعم سير الأنشطة الحضورية والهجينة."
+      ]
+    },
+    {
+      "role": "Training Coordinator – Technical Training Programs",
+      "org": "Career180 & National Telecommunication Institute (NTI)",
+      "period": "March 2026",
+      "meta": "Creativa Innovation Hub · Sohag, Egypt",
+      "points": [
+        "تنسيق الجداول والجلسات التدريبية لمسار Web Designer والأنشطة الفنية المصاحبة.",
+        "دعم تسجيل المشاركين ومتابعة الحضور وتجهيز القاعات والتأكد من جاهزية الجلسات.",
+        "التنسيق مع المدربين والمشاركين والفريق المنظم ومعالجة المتطلبات التشغيلية أثناء التدريب.",
+        "جمع الملاحظات ومساندة إعداد سجلات وتقارير تنفيذ الأنشطة."
+      ]
+    },
+    {
+      "role": "Project Coordinator – Link to Your Dream Job (Remote)",
+      "org": "EYouth",
+      "period": "January 2025 – August 2025",
+      "meta": "Remote · Education & Youth Development",
+      "points": [
+        "تنسيق أنشطة برامج تعليمية وتنموية للشباب ومتابعة الجداول والمهام والمخرجات.",
+        "متابعة timelines وmilestones والمهام المسندة، وتحديث سجلات المتابعة والتوثيق.",
+        "تنظيم الاجتماعات والتواصل بين أعضاء الفرق ودعم التنسيق بين المسارات المختلفة.",
+        "إعداد تقارير متابعة دورية وتوثيق الأنشطة والاتصالات وموقف التنفيذ."
+      ]
+    },
+    {
+      "role": "Library Assistant",
+      "org": "El Daheeh Library",
+      "period": "May 2025 – July 2025",
+      "meta": "El Monshaa, Sohag · Customer & Administrative Support",
+      "points": [
+        "تقديم خدمات العملاء اليومية ومساندة خدمات المكتبة والطباعة وتجهيز المستندات.",
+        "دعم عمليات البيع والمعاملات المالية اليومية ومهام مسك الدفاتر الأساسية.",
+        "إدخال البيانات وتنظيم سجلات الخدمات والمعاملات باستخدام Microsoft Excel."
+      ]
+    },
+    {
+      "role": "Training & Events Coordinator Intern – Education Programs",
+      "org": "Creativa Innovation Hub Sohag / Edventures",
+      "period": "October 2024 – April 2025",
+      "meta": "Sohag, Egypt · On-site",
+      "points": [
+        "دعم تنظيم الفعاليات التعليمية وورش العمل والمبادرات المجتمعية.",
+        "المساعدة في تسجيل المشاركين ومتابعة الحضور والتجهيزات واللوجستيات.",
+        "التنسيق مع المدربين والحضور والشركاء ودعم سير الفعاليات.",
+        "جمع الملاحظات والمساعدة في إعداد توثيق وتقارير الأنشطة."
+      ]
+    },
+    {
+      "role": "Online Programming Instructor – Python",
+      "org": "Special Course",
+      "period": "April 2024 – December 2024",
+      "meta": "Remote · Programming Education",
+      "points": [
+        "إعداد وتقديم محتوى Python لأكثر من 50 متعلمًا، من الأساسيات حتى مفاهيم البرمجة كائنية التوجه (OOP).",
+        "تصميم تمارين تطبيقية ومعامل برمجية واختبارات ومشروعات صغيرة لدعم التعلم بالممارسة.",
+        "تقديم إرشاد فردي وشرح للمفاهيم ومساعدة المتعلمين على تطبيق ما درسوه."
+      ]
+    },
+    {
+      "role": "Student Coordinator",
+      "org": "Abwaab Egypt",
+      "period": "January 2021 – July 2021",
+      "meta": "Remote · Student Support",
+      "points": [
+        "دعم تسجيل الطلاب وتهيئتهم لاستخدام المنصة ومتابعة طلباتهم.",
+        "الرد على الاستفسارات والمساعدة في مشكلات الحسابات والاشتراكات والوصول إلى المنصة.",
+        "تنظيم سجلات الطلاب والمتابعات وتحديث البيانات ذات الصلة."
+      ]
+    }
+  ],
+  "teaching": [
+    {
+      "role": "CS50 Facilitator & Python Instructor",
+      "org": "Cipher & Ma3refa",
+      "period": "January 2023 – January 2024",
+      "meta": "Sohag, Egypt",
+      "points": [
+        "دعم أكثر من 50 متعلمًا من خلال أنشطة تعليم البرمجة ومفاهيم علوم الحاسب.",
+        "تقديم جلسات تأسيسية في Python وScratch وC وC++ باللغة العربية.",
+        "شرح المفاهيم من خلال تمارين عملية ومشروعات وتيسير حل المشكلات والتفكير الحاسوبي."
+      ]
+    },
+    {
+      "role": "Problem Solving Facilitator",
+      "org": "Athar",
+      "period": "January 2022 – January 2023",
+      "meta": "Sohag, Egypt",
+      "points": [
+        "تيسير جلسات تمهيدية في C++ ومهارات حل المشكلات.",
+        "مساعدة المتعلمين على فهم أساسيات الخوارزميات والتفكير المنطقي والتدرج في حل المسائل."
+      ]
+    }
+  ],
+  "lifeMakers": [
+    {
+      "title": "Project Review & IT Support – Saboura El Mahrousa",
+      "period": "August 2026 – Present",
+      "text": "مراجعة سجلات تسجيل السبورات المدرسية على نظام عيش وملح، وتقديم الدعم التقني للمتطوعين والمنسقين والفرق في محافظات متعددة، ومعالجة مشكلات التسجيل وإدخال البيانات والوصول للنظام، ومتابعة أعداد السبورات المسجلة والمتبقية، وتفعيل وإدارة صلاحيات المستخدمين وفق المسؤوليات المحددة.",
+      "scope": "Project Review · Digital Systems · Technical Support"
+    },
+    {
+      "title": "Fundraising Campaign Support",
+      "period": "2026 – Present",
+      "text": "دعم أنشطة التمويل ومتابعة حملات جمع التبرعات مع صناع الحياة سوهاج، والمساعدة في التنسيق والمتابعة التشغيلية المرتبطة بالحملات.",
+      "scope": "Fundraising Operations · Campaign Follow-up"
+    },
+    {
+      "title": "Internship Program Support Assistant – Volunteer Development Unit",
+      "period": "2026 – Present",
+      "text": "مساعدة منسق ملف برنامج التدريب في المتابعة والتنظيم، والمساهمة في فكرة وتنفيذ منصة إطار احتفالي رقمي تتيح للمشاركين إضافة إطار إلى صورهم وتنزيلها ومشاركتها على منصات التواصل.",
+      "scope": "Internship Support · Digital Engagement",
+      "link": "https://makers-journey-frame.lovable.app",
+      "linkLabel": "زيارة منصة إطار الرحلة"
+    },
+    {
+      "title": "Akhmim Center – Establishment & Operations",
+      "period": "2025",
+      "text": "المساهمة في تأسيس وافتتاح مركز صناع الحياة أخميم بمحافظة سوهاج، وتولي مسؤولية المركز ومتابعة أنشطته ومتطلباته التشغيلية منذ تأسيسه.",
+      "scope": "Center Establishment · Local Operations"
+    },
+    {
+      "title": "Office Management Intern – Project Support",
+      "period": "August 2025 – October 2025",
+      "text": "دعم أعمال إدارة المكاتب والعمليات الإدارية اليومية، وتنظيم الوثائق والسجلات، والمساعدة في تنسيق الاجتماعات والتقارير والمتابعة التشغيلية والتخطيط وإعداد SWOT وخطط العمل.",
+      "scope": "Internship · Administration · Documentation"
+    },
+    {
+      "title": "Accounts Officer",
+      "period": "2024 – 2025",
+      "text": "تولي مسؤولية الحسابات بالكامل خلال الفترة المذكورة، ومتابعة المعاملات المالية وسجلات التبرعات والإيصالات والمدفوعات والمستندات المؤيدة، وتنظيم السجلات والملخصات المحاسبية.",
+      "scope": "Financial Administration · Records · Accountability"
+    },
+    {
+      "title": "IT Support & Fundraising Sector Follow-up – Sohag",
+      "period": "Starting 2024 · One-year sector follow-up",
+      "text": "تقديم الدعم التقني لحملات جمع التبرعات في مركزي المنشاة وسوهاج، مع متابعة قطاع حملات التبرعات على مستوى محافظة سوهاج لمدة عام، ومساندة الفرق في المتطلبات التقنية والتشغيلية.",
+      "scope": "IT Support · Campaign Operations · Sohag Governorate"
+    },
+    {
+      "title": "Volunteer Development & Training Support",
+      "period": "2023 – 2025",
+      "text": "تحمل مسؤوليات في تنمية المتطوعين والمساعدة في توفير فرص التدريب لهم، وتنظيم ومتابعة متطلبات الأنشطة التدريبية لدعم بناء قدرات المتطوعين.",
+      "scope": "Volunteer Development · Training Coordination"
+    },
+    {
+      "title": "Nationwide Campaign IT Support – Bouslat El Saada & Lawnha Bel Akhdar",
+      "period": "Campaign-based · Dates not specified",
+      "text": "تولي مسؤوليات تقنية مرتبطة بحملتي بوصلة السعادة ولونها بالأخضر على مستوى الجمهورية، ودعم المتطلبات التقنية والتشغيلية للحملات. لم يتم تحديد سنوات هذه التكليفات في المعلومات المتاحة.",
+      "scope": "Nationwide Campaigns · IT Support"
+    },
+    {
+      "title": "Project Coordinator – Qodwa Project, El Monshaa Center",
+      "period": "2023 · Six months",
+      "text": "تولي مسؤولية مشروع قدوة في مركز المنشاة بمحافظة سوهاج لمدة ستة أشهر في بداية رحلة التطوع، ومتابعة الأنشطة ومتطلبات التنفيذ والتنسيق اليومي للمشروع.",
+      "scope": "Project Coordination · Community Initiative"
+    }
+  ],
+  "community": [
+    {
+      "title": "TIEC Ambassador & Coordinator",
+      "org": "Technology Innovation & Entrepreneurship Center",
+      "period": "May 2024 – Present",
+      "text": "المساهمة في أنشطة مجتمع الابتكار وريادة الأعمال والتكنولوجيا، ودعم التواصل المجتمعي وتشجيع مشاركة الطلاب والشباب في الورش والفعاليات وفرص التعلم والتواصل."
+    },
+    {
+      "title": "Event Operations Support",
+      "org": "Hult Prize",
+      "period": "May 2023 – May 2024",
+      "text": "دعم العمليات واللوجستيات المرتبطة بالفعاليات ومتابعة ترتيبات التنفيذ وسير الحدث بصورة منظمة. (وفقًا للنسخة السابقة من ملف البورتفوليو)."
+    }
+  ],
+  "projects": [
+    {
+      "category": "EMAIL MARKETING · AI & AUTOMATION PLATFORM",
+      "title": "MAILFORGE 2.0 – Email Marketing & Automation Platform",
+      "text": "منصة لإدارة التسويق عبر البريد الإلكتروني من مكان واحد: إنشاء الحملات وتصميم الرسائل الاحترافية، وتنظيم الجمهور وتقسيمه، وإعداد محتوى عربي بمساعدة الذكاء الاصطناعي، وأتمتة الإرسال وإعادة الإرسال الذكي، ثم متابعة تحليلات الحملات ومؤشرات الأداء. تدعم التكامل مع Gmail وOutlook لتسهيل دورة العمل من إنشاء الحملة إلى إرسالها وتتبعها وتحسينها.",
+      "status": "Email Marketing SaaS · AI Content · Automation & Analytics",
+      "link": "https://lnkd.in/eWZMM_hv",
+      "linkLabel": "جرّب MailForge 2.0 ↗",
+      "secondaryLink": "https://www.linkedin.com/company/mailforge-skillak/",
+      "secondaryLinkLabel": "صفحة MailForge الرسمية ↗",
+      "githubMatch": "mailforge",
+      "categoryId": "web",
+      "previewImage": "",
+      "visible": true,
+      "previewUrl": ""
+    },
+    {
+      "category": "COMMUNITY TECHNOLOGY · LIVE LINK",
+      "title": "Makers Journey – Digital Celebration Frame",
+      "text": "منصة رقمية لمشاركي برنامج التدريب في صناع الحياة، تتيح تطبيق إطار احتفالي على الصورة ثم تنزيلها ومشاركتها على وسائل التواصل. ساهمت في الفكرة والتنفيذ ضمن دعم ملف التدريب.",
+      "status": "Published prototype / public demo",
+      "link": "https://makers-journey-frame.lovable.app",
+      "linkLabel": "فتح المنصة",
+      "categoryId": "community",
+      "previewImage": "",
+      "visible": true,
+      "previewUrl": "",
+      "githubMatch": ""
+    },
+    {
+      "category": "WEB SYSTEM · IN DEVELOPMENT",
+      "title": "شفاء ورحمة – Family Support Platform",
+      "text": "منظومة عربية لاستقبال طلبات دعم الأسر ومتابعتها، تشمل تصورًا لبيانات الطلبات، كود متابعة، عرض قصة الأسرة وحالة الطلب، ورفع المستندات وربط Google Sheets وGoogle Drive. المشروع مرّ بمراحل تطوير وتحسين وما زالت بعض مسائل الاستقرار والنشر بحاجة إلى متابعة.",
+      "status": "Prototype / iterative development",
+      "categoryId": "web",
+      "previewImage": "",
+      "visible": true,
+      "previewUrl": "",
+      "githubMatch": ""
+    },
+    {
+      "category": "EDTECH · PRODUCT CONCEPT",
+      "title": "Skillak Hub – Learning & Sessions Platform",
+      "text": "تصور لمنصة تعليمية تربط المتعلمين بالمدربين، مع تدفقات لحجز الجلسات، إتاحة مواعيد المدربين، متابعة الحجوزات، وإدارة العمليات والمدفوعات من لوحة تحكم. يُعرض هنا كمفهوم منتج وتخطيط للخصائص وليس كمنتج منشور مكتمل.",
+      "status": "Product concept / workflow design",
+      "categoryId": "education",
+      "previewImage": "",
+      "visible": true,
+      "previewUrl": "",
+      "githubMatch": ""
+    },
+    {
+      "category": "AI & RECYCLING · EARLY CONCEPT",
+      "title": "PlastiCash – Recycling & AI Concept",
+      "text": "فكرة تطبيق يجمع بين إعادة التدوير والتقنيات الذكية، مع استكشاف تطبيق Flutter وخدمات Firebase للمصادقة وتخزين البيانات. ما زال مشروعًا في مرحلة الفكرة والاستكشاف التقني.",
+      "status": "Early-stage concept",
+      "categoryId": "data",
+      "previewImage": "",
+      "visible": true,
+      "previewUrl": "",
+      "githubMatch": ""
+    },
+    {
+      "category": "DATA & MACHINE LEARNING · LEARNING PROJECT",
+      "title": "Telecom Customer Churn Insights",
+      "text": "تجربة تحليل بيانات تهدف إلى استكشاف أسباب ترك العملاء للخدمة، وبناء لوحة مؤشرات باستخدام Streamlit، مع مسار تجريبي لرفع CSV وعرض التحليلات وتجربة التنبؤ بمغادرة العميل.",
+      "status": "Learning prototype · Python / Pandas / Streamlit",
+      "categoryId": "data",
+      "previewImage": "",
+      "visible": true,
+      "previewUrl": "",
+      "githubMatch": ""
+    },
+    {
+      "category": "COMPUTER VISION · LEARNING PROJECT",
+      "title": "Diabetic Retinopathy Classification",
+      "text": "استكشاف مسار تصنيف صور الشبكية باستخدام مجموعات بيانات عامة ونماذج مثل EfficientNetB0 وResNet50، مع الاهتمام بزيادة البيانات وتفسير مخرجات النموذج باستخدام Grad-CAM. يُعرض كمشروع تعلم وتجربة بحثية.",
+      "status": "Research / learning implementation",
+      "categoryId": "data",
+      "previewImage": "",
+      "visible": true,
+      "previewUrl": "",
+      "githubMatch": ""
+    },
+    {
+      "category": "OPERATIONS TECHNOLOGY · CONCEPT",
+      "title": "Training Management System – TMS",
+      "text": "تصور وتحليل متطلبات نظام لإدارة البرامج التدريبية، التسجيل، الجداول، الحضور، بيانات المدربين والمتدربين، المتابعة والتقارير لصالح TechnoVision Hub.",
+      "status": "Requirements & workflow design",
+      "categoryId": "operations",
+      "previewImage": "",
+      "visible": true,
+      "previewUrl": "",
+      "githubMatch": ""
+    }
+  ],
+  "skills": [
+    {
+      "title": "Project & Program Operations",
+      "items": [
+        "Project Coordination",
+        "Program Support",
+        "Training Operations",
+        "Task Follow-up",
+        "Scheduling",
+        "Logistics Coordination",
+        "Event Coordination",
+        "Operational Reporting",
+        "Documentation",
+        "Stakeholder Communication"
+      ]
+    },
+    {
+      "title": "Education & Community Development",
+      "items": [
+        "Training Coordination",
+        "Workshop Facilitation",
+        "Learner Support",
+        "Volunteer Development",
+        "Community Engagement",
+        "Youth Development",
+        "Participant Tracking",
+        "Attendance Management",
+        "Programming Instruction"
+      ]
+    },
+    {
+      "title": "Fundraising & Administration",
+      "items": [
+        "Fundraising Campaign Support",
+        "Financial Records",
+        "Donation Tracking",
+        "Receipts & Payments Follow-up",
+        "Administrative Operations",
+        "Office Management",
+        "Records Management"
+      ]
+    },
+    {
+      "title": "Programming & Development",
+      "items": [
+        "Python",
+        "C",
+        "C++",
+        "Scratch (instruction)",
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Git",
+        "GitHub",
+        "Streamlit",
+        "FastAPI",
+        "Firebase / Firestore"
+      ]
+    },
+    {
+      "title": "Data & AI Foundations",
+      "items": [
+        "NumPy",
+        "Pandas",
+        "Jupyter Notebook",
+        "Scikit-learn (familiarity)",
+        "Power BI (basic familiarity)",
+        "KoboToolbox (basic familiarity)",
+        "Machine Learning Fundamentals",
+        "Computer Vision Concepts",
+        "Grad-CAM Concepts",
+        "Data Analysis"
+      ]
+    },
+    {
+      "title": "Productivity & Digital Tools",
+      "items": [
+        "Microsoft Excel",
+        "Google Sheets",
+        "Google Forms",
+        "Google Workspace",
+        "Microsoft Office",
+        "Microsoft Teams",
+        "Zoom",
+        "Google Meet",
+        "ChatGPT",
+        "Google Gemini",
+        "Microsoft Copilot"
+      ]
+    }
+  ],
+  "courses": [
+    {
+      "title": "Artificial Intelligence Program",
+      "org": "Samsung Innovation Campus",
+      "period": "August – November 2025",
+      "desc": "Python للبيانات، NumPy وPandas، الاستكشاف والتحليل (EDA)، ومفاهيم تعلم الآلة."
+    },
+    {
+      "title": "Python Programming",
+      "org": "Samsung Innovation Campus",
+      "period": "July – September 2023",
+      "desc": "أساسيات Python، المتغيرات والدوال والحلقات ومبادئ OOP وحل المشكلات."
+    },
+    {
+      "title": "Front-End Development",
+      "org": "Google Developer Student Clubs – Sohag",
+      "period": "June – September 2022",
+      "desc": "أساسيات HTML وCSS وJavaScript وتطبيقات الويب الأولية."
+    },
+    {
+      "title": "C++ & Competitive Programming Training",
+      "org": "ICPC Training",
+      "period": "January – March 2022",
+      "desc": "تدريب على C++ والتفكير الخوارزمي والتعامل مع مسائل البرمجة. لا يُعرض باعتباره مشاركة في مسابقة ICPC."
+    }
+  ],
+  "siteCopy": {
+    "heroTitle": "أحوّل الأفكار\nإلى خطوات واضحة\nوأثر يمكن ملاحظته.",
+    "heroLead": "أنا محمود حامد أحمد، منسّق مشروعات وبرامج من سوهاج. أعمل عند تقاطع تنسيق المشروعات، وتشغيل التدريب، وتطوير الشباب، والأنظمة الرقمية — وأستخدم التكنولوجيا لتسهيل العمل وتحسين التجربة.",
+    "aboutHeading": "مش مجرد مسميات وظيفية.",
+    "aboutSubheading": "أنا شخص يحب تنظيم الفوضى، وتسهيل التعلّم، وتحويل الاحتياج إلى نظام قابل للتنفيذ.",
+    "aboutParagraphs": [
+      "خلال رحلتي العملية والتطوعية، شاركت في مبادرات تعليمية وتنموية وتقنية في بيئات ميدانية وعن بُعد. عملت على تنسيق البرامج التدريبية، ومتابعة المشاركين والمدربين، وتنظيم الجداول واللوجستيات، وإعداد التقارير والتوثيق، ومساندة الفرق في حل التحديات التشغيلية.",
+      "بدأت رحلتي مع Life Makers Egypt في 25 مايو 2023، وتوسعت مسؤولياتي لتشمل مشروع قدوة، والدعم التقني لحملات التبرعات، والحسابات، وتنمية المتطوعين، والمساهمة في تأسيس مركز أخميم، ثم دعم مشروعات رقمية ومبادرات حالية.",
+      "خلفيتي الأكاديمية في الرياضيات والتربية، إلى جانب خبرتي في تعليم البرمجة واهتمامي بتحليل البيانات والذكاء الاصطناعي وبناء المنتجات الرقمية، تمنحني زاوية تجمع بين التفكير المنظم والتنفيذ العملي."
+    ],
+    "aboutQuote": "التنظيم الجيد لا يلفت الانتباه دائمًا، لكنه يجعل الإنجاز ممكنًا.",
+    "aboutTags": [
+      "Project Coordination",
+      "Training Operations",
+      "Youth Development",
+      "Digital Systems",
+      "Python & Data"
+    ],
+    "brandHeading": "هوية مهنية لها اتجاه.",
+    "brandSubheading": "ثلاث ركائز تجمع خبراتك في قصة واحدة واضحة.",
+    "brandPromise": "أربط بين الأشخاص والخطط والأدوات الرقمية لدعم تنفيذ برامج تعليمية ومجتمعية أكثر تنظيمًا وفاعلية.",
+    "journeyHeading": "كل محطة أضافت زاوية جديدة.",
+    "journeySubheading": "رحلة بدأت بدعم المتعلمين، ثم اتسعت إلى التعليم، والعمل المجتمعي، وتنسيق المشروعات.",
+    "impactHeading": "رحلتي في صناع الحياة.",
+    "impactSubheading": "من 25 مايو 2023 — تجربة تطوعية متعددة المسارات بين المشروعات، والحملات، والتشغيل، والدعم التقني.",
+    "impactIntro": "بدأت متطوعًا، ثم توليت مسؤوليات في تنسيق المشروعات، والحسابات، والدعم التقني، وتنمية المتطوعين، وتشغيل المراكز، ودعم حملات التمويل. بعض المهام تداخلت زمنيًا، لذا أعرضها كمسارات تحت تجربة تطوعية واحدة.",
+    "projectsHeading": "أفكار تحولت إلى تجارب.",
+    "projectsSubheading": "مشروعات وأنظمة ونماذج تطبيقية تجمع بين التقنية والتعليم والاحتياج الواقعي.",
+    "contactHeading": "عندك فكرة أو فرصة؟\nخلّينا نبدأ.",
+    "contactSubheading": "متاح للتواصل حول تنسيق المشروعات والبرامج والتدريب، والمبادرات التعليمية والتقنية.",
+    "footerTagline": "BUILDING SKILLS. MANAGING PROJECTS. CREATING IMPACT."
+  },
+  "journey": [
+    {
+      "year": "2021",
+      "title": "البداية في دعم المتعلمين",
+      "text": "Student Coordinator مع Abwaab؛ دعم التسجيل وتهيئة الطلاب ومتابعة استفساراتهم."
+    },
+    {
+      "year": "2022",
+      "title": "البرمجة وحل المشكلات",
+      "text": "تيسير جلسات C++ وحل المشكلات مع Athar، وبداية التعلّم المنظم لتطوير الويب."
+    },
+    {
+      "year": "2023",
+      "title": "التطوع والتعليم والتيسير",
+      "text": "الانضمام إلى Life Makers في 25 مايو، وتولي مسؤولية مشروع قدوة، والمشاركة في تعليم البرمجة مع Cipher & Ma3refa."
+    },
+    {
+      "year": "2024",
+      "title": "توسيع نطاق المسؤوليات",
+      "text": "مسؤوليات الحسابات والدعم التقني لحملات التبرعات بصناع الحياة، ودور TIEC، وتدريس Python، وخبرة تنسيق البرامج والفعاليات."
+    },
+    {
+      "year": "2025",
+      "title": "التشغيل وتأسيس مركز أخميم",
+      "text": "تأسيس مركز أخميم وتولي مسؤوليته، تدريب إدارة المكاتب، تنسيق برامج EYouth، ومساندة خدمات المكتبة."
+    },
+    {
+      "year": "2026",
+      "title": "تنسيق البرامج والتحول الرقمي",
+      "text": "أشبال مصر الرقمية مع EYouth، InnovEgypt مع ITIDA، تنسيق التدريب مع Career180 وNTI، FastKeys، ومهام حالية في صناع الحياة."
+    }
+  ],
+  "metrics": [
+    {
+      "value": "3+",
+      "label": "سنوات من التطوع والمشاركة المجتمعية"
+    },
+    {
+      "value": "50+",
+      "label": "متعلمًا في تدريب Python"
+    },
+    {
+      "value": "50+",
+      "label": "متعلمًا في أنشطة CS50 والبرمجة"
+    },
+    {
+      "value": "2026",
+      "label": "التخرج — كلية التربية، جامعة سوهاج"
+    }
+  ],
+  "education": {
+    "year": "2026",
+    "title": "بكالوريوس العلوم والتربية — الرياضيات",
+    "school": "كلية التربية · جامعة سوهاج",
+    "note": "Graduated in 2026"
+  },
+  "languages": [
+    {
+      "name": "العربية",
+      "level": "اللغة الأم"
+    },
+    {
+      "name": "English",
+      "level": "Professional Working Proficiency — self-assessed"
+    }
+  ],
+  "theme": {
+    "teal": "#5ce1c3",
+    "blue": "#73a9ff",
+    "gold": "#f5c978",
+    "coral": "#ff987e"
+  },
+  "featuredRepositories": [
+    "mailforge",
+    "holy-quran-competition",
+    "templatethree",
+    "pww",
+    "tic"
+  ],
+  "hiddenRepositories": []
+}

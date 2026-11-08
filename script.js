@@ -3,7 +3,7 @@
    Unconfirmed dates are deliberately labelled as campaign-based / not specified.
 */
 
-const profile = {
+let profile = {
   name: "محمود حامد أحمد",
   nameEn: "Mahmoud Hamed Ahmed",
   email: "mahmoud.hamed.ahmed25@gmail.com",
@@ -14,7 +14,7 @@ const profile = {
   portfolio: "https://mahmoudhamed24.github.io/Mahmoud_Hamed/",
 };
 
-const experience = [
+let experience = [
   {
     role: "Sales & Customer Support Representative",
     org: "FastKeys — Digital Software Products",
@@ -124,7 +124,7 @@ const experience = [
   }
 ];
 
-const teaching = [
+let teaching = [
   {
     role: "CS50 Facilitator & Python Instructor",
     org: "Cipher & Ma3refa",
@@ -148,7 +148,7 @@ const teaching = [
   }
 ];
 
-const lifeMakers = [
+let lifeMakers = [
   {
     title: "Project Review & IT Support – Saboura El Mahrousa",
     period: "August 2026 – Present",
@@ -213,7 +213,7 @@ const lifeMakers = [
   }
 ];
 
-const community = [
+let community = [
   {
     title: "TIEC Ambassador & Coordinator",
     org: "Technology Innovation & Entrepreneurship Center",
@@ -228,7 +228,7 @@ const community = [
   }
 ];
 
-const projects = [
+let projects = [
   {
     category: "EMAIL MARKETING · AI & AUTOMATION PLATFORM",
     title: "MAILFORGE 2.0 – Email Marketing & Automation Platform",
@@ -286,7 +286,7 @@ const projects = [
   }
 ];
 
-const skills = [
+let skills = [
   {
     title: "Project & Program Operations",
     items: ["Project Coordination", "Program Support", "Training Operations", "Task Follow-up", "Scheduling", "Logistics Coordination", "Event Coordination", "Operational Reporting", "Documentation", "Stakeholder Communication"]
@@ -313,7 +313,7 @@ const skills = [
   }
 ];
 
-const courses = [
+let courses = [
   { title: "Artificial Intelligence Program", org: "Samsung Innovation Campus", period: "August – November 2025", desc: "Python للبيانات، NumPy وPandas، الاستكشاف والتحليل (EDA)، ومفاهيم تعلم الآلة." },
   { title: "Python Programming", org: "Samsung Innovation Campus", period: "July – September 2023", desc: "أساسيات Python، المتغيرات والدوال والحلقات ومبادئ OOP وحل المشكلات." },
   { title: "Front-End Development", org: "Google Developer Student Clubs – Sohag", period: "June – September 2022", desc: "أساسيات HTML وCSS وJavaScript وتطبيقات الويب الأولية." },
@@ -375,6 +375,8 @@ const projectCategoryMap = {
 let selectedProjectFilter = 'all';
 let publicRepos = [];
 let selectedRepoLanguage = 'all';
+let hiddenRepositories = new Set();
+let portfolioContent = null;
 
 function renderWorkLens(name = 'projects') {
   const item = workLenses[name] || workLenses.projects;
@@ -389,8 +391,47 @@ function renderWorkLens(name = 'projects') {
   });
 }
 
+function renderJourney() {
+  const container = $('.journey-line');
+  const items = portfolioContent?.journey;
+  if (!container || !Array.isArray(items) || !items.length) return;
+  container.innerHTML = items.map(item => `<article class="journey-item reveal"><time>${escapeHTML(item.year)}</time><div><h3>${escapeHTML(item.title)}</h3><p>${escapeHTML(item.text)}</p></div></article>`).join('');
+}
+
+function renderEducationAndLanguages() {
+  const education = portfolioContent?.education;
+  if (education) {
+    const card = $('.education-card');
+    if (card) {
+      const year = card.querySelector('.edu-year');
+      const title = card.querySelector('h3');
+      const school = card.querySelector('p');
+      const note = card.querySelector('small');
+      if (year) year.textContent = education.year || '2026';
+      if (title) title.textContent = education.title || '';
+      if (school) school.textContent = education.school || '';
+      if (note) note.textContent = education.note || '';
+    }
+  }
+  const languages = portfolioContent?.languages;
+  const languageCards = $('.language-cards');
+  if (languageCards && Array.isArray(languages) && languages.length) {
+    languageCards.innerHTML = languages.map(item => `<div><strong>${escapeHTML(item.name)}</strong><span>${escapeHTML(item.level)}</span></div>`).join('');
+  }
+}
+
+function renderMetrics() {
+  const items = portfolioContent?.metrics;
+  const container = $('.metrics');
+  if (!container || !Array.isArray(items) || !items.length) return;
+  container.innerHTML = items.map(item => `<article class="metric reveal"><strong>${escapeHTML(item.value)}</strong><span>${escapeHTML(item.label)}</span></article>`).join('');
+}
+
 function renderStaticContent() {
   $('#experience-list').innerHTML = experience.map(timelineCard).join('');
+  renderJourney();
+  renderMetrics();
+  renderEducationAndLanguages();
   $('#teaching-list').innerHTML = teaching.map(timelineCard).join('');
   $('#life-makers-list').innerHTML = lifeMakers.map((item, index) => `
     <article class="impact-card panel reveal"><div class="impact-card-top"><span class="impact-number">${String(index + 1).padStart(2,'0')}</span><span class="period">${escapeHTML(item.period)}</span></div><h3>${escapeHTML(item.title)}</h3><p>${escapeHTML(item.text)}</p><span class="scope">${escapeHTML(item.scope)}</span>${item.link ? `<div class="project-actions"><a class="mini-action" href="${escapeHTML(item.link)}" target="_blank" rel="noopener noreferrer">فتح التجربة المنشورة ↗</a></div>` : ''}</article>
@@ -421,20 +462,30 @@ function findProjectRepository(project) {
 }
 
 function renderFeaturedProjects() {
-  const visible = projects.filter(project => selectedProjectFilter === 'all' || projectCategoryMap[project.title] === selectedProjectFilter);
+  const visible = projects.filter(project => project.visible !== false && (selectedProjectFilter === 'all' || (project.categoryId || projectCategoryMap[project.title]) === selectedProjectFilter));
   $('#featured-work').innerHTML = visible.map((project, index) => {
     const matchingRepo = findProjectRepository(project);
     const repoPreview = matchingRepo ? getRepoPreviewUrl(matchingRepo) : '';
+    const previewUrl = normalizeUrl(project.previewUrl || repoPreview || project.link);
+    const explicitPreviewImage = normalizeUrl(project.previewImage) || (String(project.previewImage || '').startsWith('assets/') ? project.previewImage : '');
+    const screenshotUrl = previewUrl ? getWebsiteScreenshotUrl(previewUrl) : '';
+    const previewBlock = previewUrl
+      ? `<a class="project-live-preview" href="${escapeHTML(previewUrl)}" target="_blank" rel="noopener noreferrer" aria-label="فتح ${escapeHTML(project.title)} في موقعه المنشور">
+          <img src="${escapeHTML(explicitPreviewImage || screenshotUrl)}" data-fallback-src="${escapeHTML(previewUrl ? getWebsiteScreenshotFallback(previewUrl) : '')}" alt="لقطة فعلية لموقع ${escapeHTML(project.title)}" loading="lazy" decoding="async" onload="handleRepoScreenshotLoaded(this)" onerror="handleRepoScreenshotError(this)">
+          <span class="project-preview-overlay"><b>معاينة الموقع الفعلية</b><small>اضغط لفتح المشروع ↗</small></span>
+        </a>`
+      : `<div class="project-live-preview project-preview-placeholder"><span class="preview-window-dots"><i></i><i></i><i></i></span><strong>${escapeHTML(project.title)}</strong><small>${escapeHTML(project.category)}</small><span class="preview-placeholder-label">PROJECT CONCEPT / SOURCE</span></div>`;
     const actions = [
-      project.link ? `<a class="mini-action" href="${escapeHTML(project.link)}" target="_blank" rel="noopener noreferrer">${escapeHTML(project.linkLabel || 'فتح المشروع ↗')}</a>` : '',
+      (project.link || project.previewUrl) ? `<a class="mini-action" href="${escapeHTML(normalizeUrl(project.previewUrl || project.link))}" target="_blank" rel="noopener noreferrer">${escapeHTML(project.linkLabel || 'فتح المشروع ↗')}</a>` : '',
       project.secondaryLink ? `<a class="mini-action" href="${escapeHTML(project.secondaryLink)}" target="_blank" rel="noopener noreferrer">${escapeHTML(project.secondaryLinkLabel || 'الموقع الرسمي ↗')}</a>` : '',
       matchingRepo ? `<a class="mini-action" href="${escapeHTML(matchingRepo.html_url)}" target="_blank" rel="noopener noreferrer">فتح مستودع GitHub ↗</a>` : '',
-      repoPreview ? `<a class="mini-action" href="${escapeHTML(repoPreview)}" target="_blank" rel="noopener noreferrer">فتح الموقع المنشور ↗</a>` : ''
+      repoPreview && repoPreview !== previewUrl ? `<a class="mini-action" href="${escapeHTML(repoPreview)}" target="_blank" rel="noopener noreferrer">فتح الموقع المنشور ↗</a>` : ''
     ].filter(Boolean).join('');
     const noLinkNote = (!project.link && !matchingRepo) ? '<span class="project-note">رابط المشروع العام غير متاح حاليًا</span>' : '';
     return `
     <article class="project-card panel reveal" style="--card-order:${index}">
       <div class="project-card-top"><span class="project-category">${escapeHTML(project.category)}</span><span class="project-index">${String(index + 1).padStart(2,'0')}</span></div>
+      ${previewBlock}
       <h3>${escapeHTML(project.title)}</h3><p>${escapeHTML(project.text)}</p>
       <div class="project-bottom"><span class="project-status"><i></i>${escapeHTML(project.status)}</span>
       <div class="project-actions">${actions || noLinkNote}</div></div>
@@ -465,17 +516,177 @@ function getRepoPreviewUrl(repo) {
       ? `https://${owner}.github.io/`
       : `https://${owner}.github.io/${encodeURIComponent(repository)}/`;
   }
-  return '';
+
+  // Known showcased projects can expose their documented public demo even when
+  // the GitHub repository has no Homepage field configured.
+  const repoName = String(repo?.name || '').toLowerCase();
+  const matchingProject = projects.find(project => {
+    const match = String(project.githubMatch || '').toLowerCase();
+    return match && (repoName.includes(match) || String(repo.full_name || '').toLowerCase().includes(match));
+  });
+  return normalizeUrl(matchingProject?.previewUrl || matchingProject?.link);
 }
 
-function repoImageUrl(repo) {
-  return `https://opengraph.githubassets.com/1/${encodeURIComponent(repo.owner.login)}/${encodeURIComponent(repo.name)}`;
+/* Generate a real website screenshot for published projects.
+   GitHub's OpenGraph endpoint is a repository social card, not a screenshot of the live site. */
+function getWebsiteScreenshotUrl(targetUrl) {
+  const url = normalizeUrl(targetUrl);
+  if (!url) return '';
+  // WordPress mShots captures the actual rendered destination page (not the GitHub repository card).
+  return `https://s.wordpress.com/mshots/v1/${encodeURIComponent(url)}?w=1200`;
+}
+
+function getWebsiteScreenshotFallback(targetUrl) {
+  const url = normalizeUrl(targetUrl);
+  if (!url) return '';
+  // Second screenshot provider in case mShots is temporarily unavailable.
+  return `https://image.thum.io/get/width/1200/crop/760/noanimate/${encodeURIComponent(url)}`;
+}
+
+function handleRepoScreenshotLoaded(image) {
+  if (!image) return;
+  image.classList.add('is-loaded');
+  // mShots may return a temporary "preview is being generated" placeholder on the first request.
+  // Re-request once after the service has had time to finish rendering the destination page.
+  if (image.src.includes('mshots/v1/') && !image.dataset.mshotRetried) {
+    image.dataset.mshotRetried = 'true';
+    window.setTimeout(() => {
+      if (!image.isConnected) return;
+      image.classList.remove('is-loaded');
+      const retryUrl = new URL(image.src);
+      retryUrl.searchParams.set('refresh', String(Date.now()));
+      image.src = retryUrl.href;
+    }, 4200);
+  }
+}
+
+function handleRepoScreenshotError(image) {
+  if (!image) return;
+  const fallback = image.dataset.fallbackSrc;
+  if (fallback && !image.dataset.fallbackTried) {
+    image.dataset.fallbackTried = 'true';
+    image.src = fallback;
+    return;
+  }
+  const cover = image.closest('.repo-cover, .project-live-preview');
+  cover?.classList.add('screenshot-unavailable');
+  image.remove();
+}
+
+function isHiddenRepository(repo) {
+  const fullName = String(repo?.full_name || '').toLowerCase();
+  const name = String(repo?.name || '').toLowerCase();
+  return [...hiddenRepositories].some(item => {
+    const key = String(item || '').toLowerCase().trim();
+    return key && (key === fullName || key === name);
+  });
+}
+
+async function loadPortfolioContent() {
+  try {
+    const response = await fetch(`content.json?v=${Date.now()}`, { cache: 'no-store' });
+    if (!response.ok) throw new Error(`content.json ${response.status}`);
+    const data = await response.json();
+    portfolioContent = data;
+    if (data.profile && typeof data.profile === 'object') { profile = { ...profile, ...data.profile }; applyProfileData(profile); }
+    if (Array.isArray(data.experience)) experience = data.experience;
+    if (Array.isArray(data.teaching)) teaching = data.teaching;
+    if (Array.isArray(data.lifeMakers)) lifeMakers = data.lifeMakers;
+    if (Array.isArray(data.community)) community = data.community;
+    if (Array.isArray(data.projects)) projects = data.projects;
+    if (Array.isArray(data.skills)) skills = data.skills;
+    if (Array.isArray(data.courses)) courses = data.courses;
+    if (Array.isArray(data.featuredRepositories)) FEATURED_REPOSITORIES = data.featuredRepositories;
+    hiddenRepositories = new Set(Array.isArray(data.hiddenRepositories) ? data.hiddenRepositories : []);
+    applySiteCopy(data.siteCopy || {});
+  } catch (error) {
+    console.warn('Portfolio content file could not be loaded; using built-in fallback content.', error);
+  }
+}
+
+function applyProfileData(data) {
+  if (!data || typeof data !== 'object') return;
+  const nameAr = data.name || 'محمود حامد أحمد';
+  const nameEn = data.nameEn || 'Mahmoud Hamed Ahmed';
+  const title = data.title || 'Project & Program Coordinator';
+  const location = data.location || 'سوهاج، مصر';
+  const email = data.email || '';
+  const phone = data.phone || '';
+  const phoneDisplay = data.phoneDisplay || phone;
+  const set = (selector, value) => { const element = $(selector); if (element && value) element.textContent = value; };
+  const setHref = (selector, value) => { const element = $(selector); if (element && value) element.href = value; };
+  const avatarUrl = typeof data.avatarUrl === 'string' && data.avatarUrl.trim() ? data.avatarUrl.trim() : 'assets/mahmoud.jpg';
+  $$('.brand-mark-photo, .stage-photo, .profile-avatar').forEach(image => { image.src = avatarUrl; });
+  set('#profile-name-header', nameEn);
+  set('#profile-name-inline', nameAr);
+  set('#profile-name-card', nameEn);
+  set('#profile-title-card', title);
+  set('#profile-location', location);
+  set('#contact-location', location);
+  const emailElement = $('#profile-email');
+  if (emailElement && email) { emailElement.textContent = email; emailElement.href = `mailto:${email}`; }
+  const phoneElement = $('#profile-phone');
+  if (phoneElement && phone) { phoneElement.textContent = phoneDisplay; phoneElement.href = `tel:${phone.replace(/[^+0-9]/g, '')}`; }
+  setHref('#cv-hero-link', data.cvUrl); setHref('#cv-profile-link', data.cvUrl); setHref('#cv-contact-link', data.cvUrl);
+  setHref('#linkedin-hero-link', data.linkedin); setHref('#linkedin-contact-link', data.linkedin); setHref('#linkedin-details-link', data.linkedin);
+  setHref('#github-hero-link', data.github); setHref('#github-details-link', data.github);
+  if (data.phone) setHref('#whatsapp-details-link', `https://wa.me/${phone.replace(/[^0-9]/g, '')}`);
+}
+
+function applySiteCopy(copy) {
+  const heroTitle = $('#hero-title');
+  if (heroTitle && typeof copy.heroTitle === 'string' && copy.heroTitle.trim()) heroTitle.innerHTML = escapeHTML(copy.heroTitle).replace(/\n/g, '<br>');
+  const textMap = {
+    '#hero-lead': copy.heroLead,
+    '#about-heading': copy.aboutHeading,
+    '#about-subheading': copy.aboutSubheading,
+    '#about-quote': copy.aboutQuote,
+    '#brand-heading': copy.brandHeading,
+    '#brand-subheading': copy.brandSubheading,
+    '#journey-heading': copy.journeyHeading,
+    '#journey-subheading': copy.journeySubheading,
+    '#impact-heading': copy.impactHeading,
+    '#impact-subheading': copy.impactSubheading,
+    '#impact-intro-text': copy.impactIntro,
+    '#projects-heading': copy.projectsHeading,
+    '#projects-subheading': copy.projectsSubheading,
+    '#contact-heading': copy.contactHeading,
+    '#contact-subheading': copy.contactSubheading,
+    '#footer-tagline': copy.footerTagline,
+    '.brand-card-main p': copy.brandPromise
+  };
+  Object.entries(textMap).forEach(([selector, value]) => {
+    const element = $(selector);
+    if (element && typeof value === 'string' && value.trim()) element.textContent = value;
+  });
+  if (Array.isArray(copy.aboutTags)) {
+    const tags = $('#about-tags');
+    if (tags) tags.innerHTML = copy.aboutTags.map(tag => `<span>${escapeHTML(tag)}</span>`).join('');
+  }
+  if (Array.isArray(copy.aboutParagraphs)) {
+    copy.aboutParagraphs.forEach((paragraph, index) => {
+      const element = $(`#about-paragraph-${index + 1}`);
+      if (element && typeof paragraph === 'string') element.textContent = paragraph;
+    });
+  }
+}
+
+function getRepoCodeCover(repo) {
+  const language = repo.language || 'General';
+  const name = repo.name || 'GitHub Repository';
+  return `<div class="repo-cover repo-cover-code">
+    <div class="repo-code-art" aria-hidden="true">
+      <div class="repo-code-toolbar"><span></span><span></span><span></span><small>PROJECT / SOURCE</small></div>
+      <div class="repo-code-body"><div class="repo-code-lines"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="repo-code-name">${escapeHTML(name)}</div><span class="repo-code-language">${escapeHTML(language)}</span></div>
+    </div>
+    <span class="repo-cover-label">GITHUB PROJECT</span><span class="repo-code-badge">SOURCE CODE</span>
+  </div>`;
 }
 
 /* Keep the original GitHub discovery experience: fetch every public repository,
    paginate through the full account, pin featured projects first, then sort/filter. */
 const GITHUB_USERS = ['Mahmoudhamed24'];
-const FEATURED_REPOSITORIES = [
+let FEATURED_REPOSITORIES = [
   'mailforge',
   'holy-quran-competition',
   'templatethree',
@@ -484,22 +695,21 @@ const FEATURED_REPOSITORIES = [
 ];
 const REPO_CACHE_KEY = 'mha_public_repos_v2';
 
-function isFeaturedRepository(repo) {
+function repositoryMatchesPattern(repo, pattern) {
   const name = String(repo?.name || '').toLowerCase();
   const fullName = String(repo?.full_name || '').toLowerCase();
-  return FEATURED_REPOSITORIES.some(pattern => {
-    if (pattern === 'tic' || pattern === 'pww' || pattern === 'templatethree') return name === pattern;
-    return name.includes(pattern) || fullName.includes(pattern);
-  });
+  const key = String(pattern || '').toLowerCase().trim();
+  if (!key) return false;
+  if (key.includes('/')) return fullName === key;
+  return name === key || name.includes(key) || fullName.includes(key);
+}
+
+function isFeaturedRepository(repo) {
+  return FEATURED_REPOSITORIES.some(pattern => repositoryMatchesPattern(repo, pattern));
 }
 
 function featuredRepositoryRank(repo) {
-  const name = String(repo?.name || '').toLowerCase();
-  const fullName = String(repo?.full_name || '').toLowerCase();
-  const index = FEATURED_REPOSITORIES.findIndex(pattern => {
-    if (pattern === 'tic' || pattern === 'pww' || pattern === 'templatethree') return name === pattern;
-    return name.includes(pattern) || fullName.includes(pattern);
-  });
+  const index = FEATURED_REPOSITORIES.findIndex(pattern => repositoryMatchesPattern(repo, pattern));
   return index < 0 ? Number.MAX_SAFE_INTEGER : index;
 }
 
@@ -556,13 +766,15 @@ function renderGitHubRepos() {
   const query = $('#repo-search').value.trim().toLowerCase();
   const sort = $('#repo-sort').value;
   const filtered = sortRepositories(publicRepos.filter(repo => {
+    if (isHiddenRepository(repo)) return false;
     const searchText = `${repo.name || ''} ${repo.full_name || ''} ${repo.description || ''} ${repo.language || ''}`.toLowerCase();
     const matchesSearch = !query || searchText.includes(query);
     const matchesLanguage = selectedRepoLanguage === 'all' || repo.language === selectedRepoLanguage;
     return matchesSearch && matchesLanguage;
   }), sort);
 
-  $('#repo-count').textContent = `عرض ${filtered.length} من ${publicRepos.length} مستودعًا عامًا — المشاريع المميزة أولًا`;
+  const visibleRepoCount = publicRepos.filter(repo => !isHiddenRepository(repo)).length;
+  $('#repo-count').textContent = `عرض ${filtered.length} من ${visibleRepoCount} مستودعًا عامًا — المشاريع المميزة أولًا`;
   if (!filtered.length) {
     grid.innerHTML = '<div class="empty-state">لا توجد مستودعات تطابق البحث أو التصفية الحالية.</div>';
     return;
@@ -574,8 +786,19 @@ function renderGitHubRepos() {
     const description = repo.description || 'مستودع برمجي عام — افتح المستودع لاستكشاف الملفات والكود.';
     const updated = repo.updated_at ? new Date(repo.updated_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }) : '';
     const language = repo.language || 'General';
+    const cover = previewUrl
+      ? `<div class="repo-cover repo-cover-live">
+          <a class="repo-cover-shot" href="${escapeHTML(previewUrl)}" target="_blank" rel="noopener noreferrer" aria-label="فتح الموقع المنشور لمشروع ${escapeHTML(repo.name)}">
+            <img class="repo-site-screenshot" src="${escapeHTML(getWebsiteScreenshotUrl(previewUrl))}" data-fallback-src="${escapeHTML(getWebsiteScreenshotFallback(previewUrl))}" alt="لقطة فعلية لموقع ${escapeHTML(repo.name)}" loading="lazy" decoding="async" onload="handleRepoScreenshotLoaded(this)" onerror="handleRepoScreenshotError(this)">
+            <span class="repo-shot-overlay"><b>معاينة الموقع الفعلية</b><small>اضغط لفتح الموقع ↗</small></span>
+          </a>
+          <span class="repo-cover-label">LIVE WEBSITE PREVIEW</span>
+          ${featured ? '<span class="repo-featured-badge">★ FEATURED</span>' : ''}
+          <span class="repo-live-badge"><i></i> LIVE</span>
+        </div>`
+      : getRepoCodeCover(repo).replace('<span class="repo-code-badge">SOURCE CODE</span>', `${featured ? '<span class="repo-featured-badge">★ FEATURED</span>' : ''}<span class="repo-code-badge">SOURCE CODE</span>`);
     return `<article class="repo-card reveal ${featured ? 'repo-card-featured' : ''}" style="--card-order:${index}">
-      <div class="repo-cover"><img src="${repoImageUrl(repo)}" alt="معاينة مستودع ${escapeHTML(repo.name)}" loading="lazy" onerror="this.closest('.repo-cover').classList.add('no-image');this.remove()"><span class="repo-cover-label">GITHUB PROJECT</span>${featured ? '<span class="repo-featured-badge">★ FEATURED</span>' : ''}${previewUrl ? '<span class="repo-live-badge"><i></i> LIVE</span>' : '<span class="repo-code-badge">SOURCE CODE</span>'}</div>
+      ${cover}
       <div class="repo-content"><h4>${escapeHTML(repo.name)}</h4><p>${escapeHTML(description)}</p><div class="repo-meta"><span>${escapeHTML(language)}</span><span>★ ${repo.stargazers_count || 0}</span><span>⑂ ${repo.forks_count || 0}</span>${repo.fork ? '<span>FORK</span>' : ''}</div><div class="repo-updated">آخر تحديث: ${escapeHTML(updated)}</div>
       <div class="repo-actions">${previewUrl ? `<a class="mini-action" href="${escapeHTML(previewUrl)}" target="_blank" rel="noopener noreferrer">فتح الموقع المنشور ↗</a>` : `<span class="repo-unpublished">لم يتم نشر موقع لهذا المستودع</span>`}<a href="${escapeHTML(repo.html_url)}" target="_blank" rel="noopener noreferrer">عرض الكود ↗</a></div></div>
     </article>`;
@@ -789,8 +1012,9 @@ function setupDialogsAndControls() {
   $('#command-links').addEventListener('click', event => { if (event.target.closest('a')) closeDialogs(); });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   document.documentElement.classList.add('js-ready');
+  await loadPortfolioContent();
   renderStaticContent();
   renderWorkLens('projects');
   setupNavigation();

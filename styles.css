@@ -156,3 +156,189 @@ img { max-width: 100%; }
   .stage-core, .stage-photo-label { animation:none !important; }
   .button:hover { transform:none; }
 }
+
+/* Real live-site image previews for repository and featured project cards */
+.repo-cover.repo-cover-live {
+  height: 198px;
+  background: linear-gradient(135deg, #142b43, #0a1727 72%);
+}
+.repo-cover.repo-cover-live::before { content: none; }
+.repo-cover-shot {
+  position: absolute;
+  inset: 0;
+  display: block;
+  overflow: hidden;
+  background: linear-gradient(135deg, #172f48, #0a1727);
+}
+.repo-site-screenshot {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  opacity: .08;
+  transform: scale(1.015);
+  transition: opacity .5s ease, transform .65s cubic-bezier(.2,.7,.2,1);
+}
+.repo-site-screenshot.is-loaded { opacity: 1; }
+.repo-card:hover .repo-site-screenshot.is-loaded { transform: scale(1.055); }
+.repo-shot-overlay {
+  position: absolute;
+  inset: auto 0 0;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: .75rem;
+  padding: 2rem .85rem .7rem;
+  color: #fff;
+  background: linear-gradient(180deg, transparent, rgba(4,12,22,.82));
+  opacity: .92;
+  transition: opacity .25s ease;
+}
+.repo-shot-overlay b { font-size: .7rem; font-weight: 800; }
+.repo-shot-overlay small { font-size: .58rem; color: rgba(255,255,255,.78); }
+.repo-cover-live:hover .repo-shot-overlay { opacity: 1; }
+.repo-cover-live.screenshot-unavailable::before {
+  content: "WEBSITE PREVIEW";
+  display: grid;
+  place-items: center;
+  position: absolute;
+  inset: 0;
+  color: rgba(255,255,255,.62);
+  font: 700 .7rem var(--mono);
+  letter-spacing: .12em;
+}
+.repo-cover-live.screenshot-unavailable::after {
+  content: "الصورة غير متاحة حاليًا — افتح الموقع من الزر بالأسفل";
+  position: absolute;
+  inset: auto 1rem 1rem;
+  color: var(--muted);
+  font-size: .62rem;
+  text-align: center;
+}
+.repo-cover-label { z-index: 4; }
+.repo-live-badge, .repo-code-badge, .repo-featured-badge { z-index: 5; }
+
+/* Attractive non-live repository visual: a designed source-code poster, not a fake screenshot */
+.repo-cover.repo-cover-code {
+  height: 198px;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background:
+    radial-gradient(circle at 78% 16%, rgba(92,225,195,.18), transparent 38%),
+    radial-gradient(circle at 18% 85%, rgba(115,169,255,.14), transparent 42%),
+    linear-gradient(135deg, #122a43, #081522 75%);
+}
+.repo-cover.repo-cover-code::before { content: none; }
+.repo-code-art {
+  width: min(86%, 330px);
+  min-height: 122px;
+  border: 1px solid rgba(255,255,255,.17);
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(5,13,24,.74);
+  box-shadow: 0 16px 38px rgba(0,0,0,.2);
+  transform: perspective(700px) rotateX(3deg) rotateY(-4deg);
+  transition: transform .35s ease, border-color .35s ease;
+}
+.repo-card:hover .repo-code-art { transform: perspective(700px) rotateX(0) rotateY(0) translateY(-3px); border-color: rgba(92,225,195,.42); }
+.repo-code-toolbar {
+  height: 29px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 .65rem;
+  background: rgba(255,255,255,.045);
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+.repo-code-toolbar > span { width: 6px; height: 6px; border-radius: 50%; background: #f5c978; }
+.repo-code-toolbar > span:nth-child(2) { background: #73a9ff; }
+.repo-code-toolbar > span:nth-child(3) { background: #5ce1c3; }
+.repo-code-toolbar small { margin-inline-start: auto; color: rgba(255,255,255,.47); font: .48rem var(--mono); direction: ltr; }
+.repo-code-body { position: relative; min-height: 92px; padding: .85rem 1rem; }
+.repo-code-lines { display: flex; flex-direction: column; gap: 7px; width: 43%; }
+.repo-code-lines i { display: block; height: 4px; border-radius: 9px; background: linear-gradient(90deg, rgba(92,225,195,.75), rgba(115,169,255,.25)); }
+.repo-code-lines i:nth-child(2) { width: 76%; margin-left: 12%; }
+.repo-code-lines i:nth-child(3) { width: 90%; }
+.repo-code-lines i:nth-child(4) { width: 63%; margin-left: 18%; }
+.repo-code-lines i:nth-child(5) { width: 82%; }
+.repo-code-lines i:nth-child(6) { width: 48%; margin-left: 12%; }
+.repo-code-name { position: absolute; right: .9rem; top: 1rem; max-width: 53%; color: #f2f8ff; font: 700 .78rem var(--mono); text-align: right; overflow-wrap: anywhere; }
+.repo-code-language { position: absolute; right: .9rem; bottom: .7rem; color: #f5c978; font: .52rem var(--mono); direction: ltr; }
+
+/* Featured project cards also show an actual screenshot when a public URL exists */
+.project-live-preview {
+  position: relative;
+  display: block;
+  height: 166px;
+  margin-top: 1rem;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  background: linear-gradient(135deg, #142b43, #091725);
+}
+.project-live-preview img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  opacity: .08;
+  transition: opacity .45s ease, transform .6s ease;
+}
+.project-live-preview img.is-loaded { opacity: 1; }
+.project-card:hover .project-live-preview img.is-loaded { transform: scale(1.045); }
+.project-preview-overlay {
+  position: absolute;
+  inset: auto 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: .5rem;
+  padding: 2rem .75rem .6rem;
+  color: #fff;
+  background: linear-gradient(180deg, transparent, rgba(4,12,22,.8));
+}
+.project-preview-overlay b { font-size: .68rem; }
+.project-preview-overlay small { font-size: .56rem; color: rgba(255,255,255,.8); }
+.project-live-preview.screenshot-unavailable::after {
+  content: "لقطة الموقع غير متاحة حاليًا — استخدم رابط التجربة أسفل البطاقة";
+  position: absolute;
+  inset: 50% 1rem auto;
+  transform: translateY(-50%);
+  color: var(--muted);
+  font-size: .65rem;
+  text-align: center;
+}
+.project-preview-placeholder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: .45rem;
+  padding: 1rem;
+  color: var(--text);
+  background: radial-gradient(circle at 90% 10%, rgba(92,225,195,.16), transparent 42%), linear-gradient(135deg,#10273d,#081522);
+}
+.project-preview-placeholder strong { font: 700 .8rem var(--mono); direction: ltr; overflow-wrap: anywhere; }
+.project-preview-placeholder small { color: var(--muted); font-size: .65rem; }
+.preview-window-dots { display: flex; gap: 5px; margin-bottom: .25rem; }
+.preview-window-dots i { width: 6px; height: 6px; border-radius: 50%; background: #f5c978; }
+.preview-window-dots i:nth-child(2) { background: #73a9ff; }
+.preview-window-dots i:nth-child(3) { background: #5ce1c3; }
+.preview-placeholder-label { margin-top: .25rem; color: var(--teal); font: .5rem var(--mono); letter-spacing: .09em; }
+
+@media (max-width: 820px) {
+  .repo-cover.repo-cover-live, .repo-cover.repo-cover-code { height: 185px; }
+  .project-live-preview { height: 175px; }
+}
+@media (max-width: 600px) {
+  .repo-cover.repo-cover-live, .repo-cover.repo-cover-code { height: 180px; }
+  .project-live-preview { height: 165px; }
+  .repo-shot-overlay { padding: 1.8rem .65rem .55rem; }
+  .repo-shot-overlay b { font-size: .64rem; }
+  .repo-shot-overlay small { font-size: .53rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .repo-site-screenshot, .repo-code-art, .project-live-preview img { transition: none !important; transform: none !important; }
+}

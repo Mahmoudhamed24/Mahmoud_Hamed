@@ -64,3 +64,14 @@ See [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md) and [PROJECT_PREVIEW_GUIDE.md](PR
 ## Featured Projects
 ### MAILFORGE 2.0 — Email Marketing & Automation Platform
 A platform for managing email marketing workflows: campaign creation, professional email design, audience segmentation, AI-assisted Arabic content, automation and smart resend, campaign analytics, and Gmail/Outlook integration. [Try MailForge 2.0](https://lnkd.in/eWZMM_hv) · [MailForge by Skillak](https://www.linkedin.com/company/mailforge-skillak/)
+
+
+## Live website screenshot previews
+
+The GitHub projects section automatically loads public repositories and displays a real screenshot of the published website when a repository has a configured Homepage URL or enabled GitHub Pages site. Screenshots are generated lazily through the Thum.io screenshot API. If screenshot generation fails, the card shows a clear fallback message rather than a misleading image. Repositories without a published site show a designed source-code cover. Selecting a screenshot opens the actual live website in a new tab. See `PROJECT_PREVIEW_GUIDE.md` for details.
+
+## Private Admin Panel
+
+The private management page is `admin.html`. It is intentionally omitted from the public navigation. To enable secure login and persistent editing, deploy the Cloudflare Worker from `admin-worker/`, set `ADMIN_PASSWORD`, `SESSION_SECRET`, and `GITHUB_TOKEN` as Worker secrets, then set the Worker URL in `admin-config.js`. Full instructions are in `ADMIN_SETUP.md`.
+
+The panel supports creating, editing, hiding/showing, and deleting featured projects; pinning or hiding GitHub repositories; and editing the full `content.json` data model. Updates are committed to the GitHub Pages repository by the Worker. Do not put credentials in this repository.
