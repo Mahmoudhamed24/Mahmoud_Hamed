@@ -545,19 +545,41 @@ function getWebsiteScreenshotFallback(targetUrl) {
 
 function handleRepoScreenshotLoaded(image) {
   if (!image) return;
+
+  // Keep the currently loaded screenshot visible at all times.
   image.classList.add('is-loaded');
-  // mShots may return a temporary "preview is being generated" placeholder on the first request.
-  // Re-request once after the service has had time to finish rendering the destination page.
-  if (image.src.includes('mshots/v1/') && !image.dataset.mshotRetried) {
-    image.dataset.mshotRetried = 'true';
-    window.setTimeout(() => {
-      if (!image.isConnected) return;
-      image.classList.remove('is-loaded');
-      const retryUrl = new URL(image.src);
+
+  // Retry in the background without hiding the current screenshot.
+  if (!image.src.includes('mshots/v1/') || image.dataset.mshotRetried) return;
+
+  image.dataset.mshotRetried = 'true';
+
+  window.setTimeout(() => {
+    if (!image.isConnected) return;
+
+    let retryUrl;
+    try {
+      retryUrl = new URL(image.src);
       retryUrl.searchParams.set('refresh', String(Date.now()));
-      image.src = retryUrl.href;
-    }, 4200);
-  }
+    } catch {
+      return;
+    }
+
+    const replacement = new Image();
+    replacement.decoding = 'async';
+
+    replacement.onload = () => {
+      if (!image.isConnected) return;
+      image.src = replacement.src;
+      image.classList.add('is-loaded');
+    };
+
+    replacement.onerror = () => {
+      // Keep the first successfully loaded screenshot visible.
+    };
+
+    replacement.src = retryUrl.href;
+  }, 4200);
 }
 
 function handleRepoScreenshotError(image) {
