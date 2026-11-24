@@ -75,3 +75,12 @@ The GitHub projects section automatically loads public repositories and displays
 The private management page is `admin.html`. It is intentionally omitted from the public navigation. To enable secure login and persistent editing, deploy the Cloudflare Worker from `admin-worker/`, set `ADMIN_PASSWORD`, `SESSION_SECRET`, and `GITHUB_TOKEN` as Worker secrets, then set the Worker URL in `admin-config.js`. Full instructions are in `ADMIN_SETUP.md`.
 
 The panel supports creating, editing, hiding/showing, and deleting featured projects; pinning or hiding GitHub repositories; and editing the full `content.json` data model. Updates are committed to the GitHub Pages repository by the Worker. Do not put credentials in this repository.
+
+## What's new (November 2026)
+
+- Experience shows the four most recent roles first, with a "show all" button.
+- Selected work now includes live tools built on GitHub Pages: Donations tracking, the leadership survey platform, Atlas dashboard, National ID analyzer and the library sales report, each with a real page screenshot (`assets/projects/`).
+- InnovEgypt digital graduation frame added as an internship contribution.
+- Courses and certificates list the verified certificates (ITIDA, FastKeys, Creativa, App Lab, SoloLearn, Almadrasa, GDSC Sohag). Undated certificates are left undated.
+- The portfolio's own repositories are hidden from the auto-loaded GitHub grid via `hiddenRepositories` in `content.json`.
+- Project cards use `previewImage` (local `assets/` path) first, then fall back to a live screenshot service.
