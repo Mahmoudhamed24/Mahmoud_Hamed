@@ -342,3 +342,5 @@ img { max-width: 100%; }
 @media (prefers-reduced-motion: reduce) {
   .repo-site-screenshot, .repo-code-art, .project-live-preview img { transition: none !important; transform: none !important; }
 }
+
+.exp-toggle{display:block;margin:1rem auto 0;cursor:pointer}.timeline-card[hidden]{display:none}
