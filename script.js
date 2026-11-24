@@ -429,6 +429,11 @@ function renderMetrics() {
 
 function renderStaticContent() {
   $('#experience-list').innerHTML = experience.map(timelineCard).join('');
+  (function(){const list=$('#experience-list');const cards=[...list.children];const LIMIT=4;
+    if(cards.length>LIMIT&&!document.getElementById('exp-toggle')){cards.slice(LIMIT).forEach(c=>c.hidden=true);
+      const b=document.createElement('button');b.id='exp-toggle';b.type='button';b.className='mini-action exp-toggle';b.textContent='عرض كل الخبرات ('+cards.length+') ↓';
+      b.addEventListener('click',()=>{const open=b.dataset.open!=='1';cards.slice(LIMIT).forEach(c=>c.hidden=!open);b.dataset.open=open?'1':'0';b.textContent=open?'عرض أقل ↑':'عرض كل الخبرات ('+cards.length+') ↓';});
+      list.after(b);}})();
   renderJourney();
   renderMetrics();
   renderEducationAndLanguages();
@@ -467,12 +472,12 @@ function renderFeaturedProjects() {
     const matchingRepo = findProjectRepository(project);
     const repoPreview = matchingRepo ? getRepoPreviewUrl(matchingRepo) : '';
     const previewUrl = normalizeUrl(project.previewUrl || repoPreview || project.link);
-    const explicitPreviewImage = normalizeUrl(project.previewImage) || (String(project.previewImage || '').startsWith('assets/') ? project.previewImage : '');
+    const explicitPreviewImage = String(project.previewImage || '').startsWith('assets/') ? project.previewImage : normalizeUrl(project.previewImage);
     const screenshotUrl = previewUrl ? getWebsiteScreenshotUrl(previewUrl) : '';
     const previewBlock = previewUrl
       ? `<a class="project-live-preview" href="${escapeHTML(previewUrl)}" target="_blank" rel="noopener noreferrer" aria-label="فتح ${escapeHTML(project.title)} في موقعه المنشور">
-          <img src="${escapeHTML(explicitPreviewImage || screenshotUrl)}" data-fallback-src="${escapeHTML(previewUrl ? getWebsiteScreenshotFallback(previewUrl) : '')}" alt="لقطة فعلية لموقع ${escapeHTML(project.title)}" loading="lazy" decoding="async" onload="handleRepoScreenshotLoaded(this)" onerror="handleRepoScreenshotError(this)">
-          <span class="project-preview-overlay"><b>معاينة الموقع الفعلية</b><small>اضغط لفتح المشروع ↗</small></span>
+          <img src="${escapeHTML(explicitPreviewImage || screenshotUrl)}" data-fallback-src="${escapeHTML(previewUrl ? getWebsiteScreenshotFallback(previewUrl) : '')}" alt="${project.previewKind === 'artwork' ? 'غلاف توضيحي لمشروع' : 'لقطة فعلية لموقع'} ${escapeHTML(project.title)}" loading="lazy" decoding="async" onload="handleRepoScreenshotLoaded(this)" onerror="handleRepoScreenshotError(this)">
+          <span class="project-preview-overlay"><b>${project.previewKind === 'artwork' ? 'غلاف توضيحي (ليس لقطة من الموقع)' : 'معاينة الموقع الفعلية'}</b><small>اضغط لفتح المشروع ↗</small></span>
         </a>`
       : `<div class="project-live-preview project-preview-placeholder"><span class="preview-window-dots"><i></i><i></i><i></i></span><strong>${escapeHTML(project.title)}</strong><small>${escapeHTML(project.category)}</small><span class="preview-placeholder-label">PROJECT CONCEPT / SOURCE</span></div>`;
     const actions = [
