@@ -383,6 +383,28 @@
       "secondaryLinkLabel": "الكود على GitHub (@life-makers-sohag) ↗"
     },
     {
+      "category": "EDTECH · INTERACTIVE GUIDE",
+      "title": "دليل أساسيات الموارد البشرية – Interactive Training Guide",
+      "text": "دليل تفاعلي عربي لأساسيات إدارة الموارد البشرية للمبتدئين. بنيت الموقع بمساعدة أدوات الذكاء الاصطناعي: 13 قسمًا، واختبار من 10 أسئلة بنتيجة ومراجعة فورية للإجابات.",
+      "status": "Interactive prototype · built with AI tools",
+      "categoryId": "education",
+      "previewImage": "",
+      "visible": true,
+      "previewUrl": "",
+      "githubMatch": ""
+    },
+    {
+      "category": "OPERATIONS TECHNOLOGY · CONCEPT",
+      "title": "لوحة متابعة سبورة المحروسة – Field Follow-up Dashboard",
+      "text": "فكرة لوحة متابعة ميدانية لحملة وجبات المطاعم: عرض التغطية والمستهدف مقابل المنفّذ، مع فلاتر وتنبيهات وتصدير إلى Excel. صممت الفكرة وبنيت النموذج بمساعدة أدوات الذكاء الاصطناعي.",
+      "status": "Concept / prototype",
+      "categoryId": "operations",
+      "previewImage": "",
+      "visible": true,
+      "previewUrl": "",
+      "githubMatch": ""
+    },
+    {
       "category": "DATA · LIVE LINK",
       "title": "Atlas – لوحة بيانات تلقائية",
       "text": "أداة تقرأ ملف بيانات، وتكتشف أنواع الأعمدة، وتنشئ مخططات وتتيح التصفية، بواجهة عربية وإنجليزية. تعمل مباشرة في المتصفح.",
