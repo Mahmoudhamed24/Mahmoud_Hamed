@@ -236,7 +236,7 @@
       "secondaryLinkLabel": "صفحة MailForge الرسمية ↗",
       "githubMatch": "mailforge",
       "categoryId": "web",
-      "previewImage": "",
+      "previewImage": "assets/projects/mailforge.svg",
       "visible": true,
       "previewUrl": ""
     },
@@ -248,7 +248,7 @@
       "link": "https://makers-journey-frame.lovable.app",
       "linkLabel": "فتح المنصة",
       "categoryId": "community",
-      "previewImage": "",
+      "previewImage": "assets/projects/makers.svg",
       "visible": true,
       "previewUrl": "",
       "githubMatch": ""
@@ -318,6 +318,85 @@
       "visible": true,
       "previewUrl": "",
       "githubMatch": ""
+    },
+    {
+      "category": "OPERATIONS TECHNOLOGY · LIVE LINK",
+      "title": "متابعة حسابات الحملات التمويلية – صناع الحياة",
+      "text": "أداة ويب لمتابعة حسابات الحملات التمويلية في صناع الحياة، مبنية لدعم متابعة السجلات المالية للحملات.",
+      "status": "Published web tool (GitHub Pages)",
+      "link": "https://mahmoudhamed24.github.io/Donations/",
+      "linkLabel": "فتح الأداة",
+      "githubMatch": "Donations",
+      "categoryId": "operations",
+      "previewImage": "assets/projects/donations.svg",
+      "visible": true,
+      "previewUrl": ""
+    },
+    {
+      "category": "COMMUNITY TECHNOLOGY · LIVE LINK",
+      "title": "استبيان الملفات وتحليل القيادة – صناع الحياة",
+      "text": "منصة استبيان تقترح الملف الأنسب بناءً على الإجابات، مع لوحة أدمن لمنسق المحافظة. تُعرض هنا كتجربة منشورة دون عرض بيانات المشاركين.",
+      "status": "Published prototype (GitHub Pages)",
+      "link": "https://mahmoudhamed24.github.io/leadership/",
+      "linkLabel": "فتح المنصة",
+      "githubMatch": "leadership",
+      "categoryId": "community",
+      "previewImage": "assets/projects/leadership.svg",
+      "previewKind": "artwork",
+      "visible": true,
+      "previewUrl": ""
+    },
+    {
+      "category": "DATA · LIVE LINK",
+      "title": "Atlas – لوحة بيانات تلقائية",
+      "text": "أداة تقرأ بنية ملف البيانات، وتكتشف أنواع الأعمدة، وتنشئ مخططات وتتيح التصفية الفورية، مع دعم البيانات العربية والإنجليزية.",
+      "status": "Published prototype (GitHub Pages)",
+      "link": "https://mahmoudhamed24.github.io/Dynamic-Dashboard/",
+      "linkLabel": "فتح الأداة",
+      "githubMatch": "Dynamic-Dashboard",
+      "categoryId": "data",
+      "previewImage": "assets/projects/atlas.svg",
+      "visible": true,
+      "previewUrl": ""
+    },
+    {
+      "category": "WEB TOOL · LIVE LINK",
+      "title": "تحليل الرقم القومي المصري",
+      "text": "أداة تحلل الرقم القومي المكوّن من 14 رقمًا، مع نسخ النتائج وتحميل PDF والمشاركة عبر واتساب ووضع ليلي.",
+      "status": "Published web tool (GitHub Pages)",
+      "link": "https://mahmoudhamed24.github.io/decodeNationalId/",
+      "linkLabel": "فتح الأداة",
+      "githubMatch": "decodeNationalId",
+      "categoryId": "web",
+      "previewImage": "assets/projects/nationalid.svg",
+      "visible": true,
+      "previewUrl": ""
+    },
+    {
+      "category": "OPERATIONS TECHNOLOGY · LIVE LINK",
+      "title": "مبيعات المكتبة وتقرير وجرد",
+      "text": "أداة لمتابعة مبيعات المكتبة وإعداد تقرير وجرد، من تجربة العمل في مكتبة الدحيح.",
+      "status": "Published prototype (GitHub Pages)",
+      "link": "https://mahmoudhamed24.github.io/eldaheeh/",
+      "linkLabel": "فتح الأداة",
+      "githubMatch": "eldaheeh",
+      "categoryId": "operations",
+      "previewImage": "assets/projects/eldaheeh.svg",
+      "visible": true,
+      "previewUrl": ""
+    },
+    {
+      "category": "COMMUNITY TECHNOLOGY · INTERNSHIP CONTRIBUTION",
+      "title": "InnovEgypt – Digital Graduation Frame",
+      "text": "ساهمت في فكرة وتصميم وتنفيذ تجربة إطار رقمي لخريجي InnovEgypt ضمن برنامج التدريب الصيفي في ITIDA، ودعمت التحضير لحفل التخرج وتنفيذه.",
+      "status": "Internship contribution · ITIDA",
+      "link": "",
+      "linkLabel": "",
+      "githubMatch": "",
+      "categoryId": "community",
+      "previewImage": "",
+      "visible": true,
+      "previewUrl": ""
     }
   ],
   "skills": [
@@ -435,6 +514,60 @@
       "org": "ICPC Training",
       "period": "January – March 2022",
       "desc": "تدريب على C++ والتفكير الخوارزمي والتعامل مع مسائل البرمجة. لا يُعرض باعتباره مشاركة في مسابقة ICPC."
+    },
+    {
+      "title": "Summer Internship Program 2026 – Completion Certificate",
+      "org": "ITIDA",
+      "period": "2026",
+      "desc": "شهادة إتمام برنامج التدريب الصيفي من هيئة تنمية صناعة تكنولوجيا المعلومات."
+    },
+    {
+      "title": "Certificate of Completion – Training Period",
+      "org": "FastKeys",
+      "period": "Issued October 2026",
+      "desc": "شهادة إتمام فترة التدريب في FastKeys."
+    },
+    {
+      "title": "Advanced Freelancing Workshop",
+      "org": "Creativa",
+      "period": "November 2022",
+      "desc": "ورشة العمل الحر المتقدمة (19–21 نوفمبر 2022)."
+    },
+    {
+      "title": "App Lab",
+      "org": "تطوّر وغيّر (Tawar w 3'ayar)",
+      "period": "May 2023",
+      "desc": "شهادة إتمام برنامج App Lab."
+    },
+    {
+      "title": "HTML",
+      "org": "SoloLearn",
+      "period": "January 2023",
+      "desc": "شهادة إتمام دورة HTML."
+    },
+    {
+      "title": "CSS",
+      "org": "SoloLearn",
+      "period": "March 2023",
+      "desc": "شهادة إتمام دورة CSS."
+    },
+    {
+      "title": "Git and GitHub",
+      "org": "Almadrasa",
+      "period": "",
+      "desc": "شهادة إتمام دورة Git وGitHub."
+    },
+    {
+      "title": "Software Fundamentals",
+      "org": "Google Developer Student Clubs – Sohag University",
+      "period": "",
+      "desc": "شهادة في أساسيات البرمجيات."
+    },
+    {
+      "title": "HTML & CSS",
+      "org": "Google Developer Student Clubs – Sohag University",
+      "period": "",
+      "desc": "شهادة في HTML وCSS."
     }
   ],
   "siteCopy": {
@@ -548,5 +681,10 @@
     "pww",
     "tic"
   ],
-  "hiddenRepositories": []
+  "hiddenRepositories": [
+    "Mahmoudhamed24",
+    "Mahmoud_Hamed",
+    "leadership",
+    "leadership-analyses"
+  ]
 }
