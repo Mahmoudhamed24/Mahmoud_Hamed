@@ -766,7 +766,7 @@ async function fetchUserRepos(username) {
 }
 
 function getRepoLanguageList() {
-  return [...new Set(publicRepos.map(repo => repo.language).filter(Boolean))].sort((a, b) => a.localeCompare(b));
+  return [...new Set(archiveRepos.filter(r=>r.group!=='profile').map(repo => repo.language).filter(Boolean))].sort((a, b) => a.localeCompare(b));
 }
 
 function sortRepositories(repositories, sort) {
@@ -787,101 +787,114 @@ function renderRepoFilters() {
   $('#repo-filters').innerHTML = options.map(option => `<button class="repo-filter ${selectedRepoLanguage === option.value ? 'active' : ''}" data-repo-language="${escapeHTML(option.value)}" aria-pressed="${selectedRepoLanguage === option.value}">${escapeHTML(option.label)}</button>`).join('');
 }
 
+const REPO_GROUPS = [
+  { id: 'skillak', title: 'Skillak Hub — منصة الجلسات والتعلم', note: 'إصدارات ونسخ تجريبية متعددة من فكرة المنصة نفسها، عبر الحسابات المرتبطة. الأحدث أولًا؛ لا تُعد مشاريع منفصلة.' },
+  { id: 'lifemakers', title: 'أدوات صناع الحياة', note: 'أدوات وصفحات للمتطوعين والحملات: متابعة التبرعات، القيادة، الفريمات، الشراكات وغيرها.' },
+  { id: 'web', title: 'أدوات ومشاريع ويب', note: 'مشاريع ويب مستقلة: لوحات بيانات، مبيعات، جداول، مسابقات وقوالب.' },
+  { id: 'learning', title: 'نسخ للتعلم (Forks) — ليست أعمالًا أصلية', note: 'نسخ من دورات ومشاريع تعليمية مفتوحة المصدر محفوظة للتعلم والتجريب.', collapsed: true }
+];
+let archiveRepos = [];
+let archiveMeta = null;
+const expandedRepoGroups = new Set();
+
+function repoLive(repo) { return normalizeUrl(repo.homepage); }
+function repoDate(value) { return value ? new Date(value).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }) : ''; }
+
+function repoCardHTML(repo, index) {
+  const previewUrl = repoLive(repo);
+  const description = repo.description || 'لا يوجد وصف على GitHub — افتح المستودع لاستكشاف الملفات والكود.';
+  const language = repo.language || 'General';
+  const also = (repo.alsoAt || []).length ? `<div class="repo-updated">نسخة أيضًا في: ${repo.alsoAt.map(escapeHTML).join('، ')}</div>` : '';
+  const cover = previewUrl
+    ? `<div class="repo-cover repo-cover-live">
+        <a class="repo-cover-shot" href="${escapeHTML(previewUrl)}" target="_blank" rel="noopener noreferrer" aria-label="فتح الموقع المنشور لمشروع ${escapeHTML(repo.name)}">
+          <img class="repo-site-screenshot" src="${escapeHTML(getWebsiteScreenshotUrl(previewUrl))}" data-fallback-src="${escapeHTML(getWebsiteScreenshotFallback(previewUrl))}" alt="لقطة فعلية لموقع ${escapeHTML(repo.name)}" loading="lazy" decoding="async" onload="handleRepoScreenshotLoaded(this)" onerror="handleRepoScreenshotError(this)">
+          <span class="repo-shot-overlay"><b>معاينة الموقع الفعلية</b><small>اضغط لفتح الموقع ↗</small></span>
+        </a>
+        <span class="repo-cover-label">LIVE WEBSITE PREVIEW</span>
+        <span class="repo-live-badge"><i></i> LIVE</span>
+      </div>`
+    : getRepoCodeCover(repo);
+  return `<article class="repo-card reveal" style="--card-order:${index}">
+    ${cover}
+    <div class="repo-content"><h4>${escapeHTML(repo.name)}</h4><p>${escapeHTML(description)}</p><div class="repo-meta"><span>${escapeHTML(language)}</span>${repo.fork ? '<span>FORK</span>' : ''}<span class="repo-account">@${escapeHTML(repo.owner?.login || '')}</span></div><div class="repo-updated">آخر تحديث: ${escapeHTML(repoDate(repo.updated_at))}</div>${also}
+    <div class="repo-actions">${previewUrl ? `<a class="mini-action" href="${escapeHTML(previewUrl)}" target="_blank" rel="noopener noreferrer">فتح الموقع ↗</a>` : '<span class="repo-unpublished">لا يوجد موقع منشور يعمل حاليًا</span>'}<a href="${escapeHTML(repo.html_url)}" target="_blank" rel="noopener noreferrer">عرض الكود ↗</a></div></div>
+  </article>`;
+}
+
+function skillakVersionsHTML(repos) {
+  const rows = repos.map(repo => {
+    const live = repoLive(repo);
+    return `<li class="sk-row"><span class="sk-name">${escapeHTML(repo.name)}</span><span class="sk-acc">@${escapeHTML(repo.owner?.login || '')}</span><span class="sk-date">${escapeHTML(repoDate(repo.created_at))}</span><span class="sk-desc">${escapeHTML(repo.description || '')}</span><span class="sk-links">${live ? `<a href="${escapeHTML(live)}" target="_blank" rel="noopener noreferrer">الموقع ↗</a>` : '<em>بدون موقع</em>'}<a href="${escapeHTML(repo.html_url)}" target="_blank" rel="noopener noreferrer">الكود ↗</a></span></li>`;
+  });
+  const latest = repos.find(repo => repoLive(repo));
+  const open = expandedRepoGroups.has('skillak-history') || repos.length <= 3;
+  const shown = open ? repos : repos.slice(0, 3);
+  const rowsShown = rows.slice(0, open ? rows.length : 3);
+  return `<article class="repo-card repo-card-wide sk-card reveal">
+    <div class="repo-content"><p>${repos.length} مستودعًا · ${repos.filter(repoLive).length} بموقع يعمل${latest ? ` · الأحدث: <a href="${escapeHTML(repoLive(latest))}" target="_blank" rel="noopener noreferrer">${escapeHTML(latest.name)} ↗</a>` : ''}</p><ul class="sk-list">${rowsShown.join('')}</ul>${repos.length > 3 ? `<button type="button" class="repo-filter" data-repo-group-toggle="skillak-history" aria-expanded="${open}">${open ? 'إخفاء سجل الإصدارات ↑' : `عرض سجل الإصدارات كاملًا (${repos.length}) ↓`}</button>` : ''}</div>
+  </article>`;
+}
+
 function renderGitHubRepos() {
+  if (!document.querySelector('#repo-grid')) return;
   const grid = $('#repo-grid');
   if (!grid) return;
   const query = $('#repo-search').value.trim().toLowerCase();
   const sort = $('#repo-sort').value;
-  const filtered = sortRepositories(publicRepos.filter(repo => {
-    if (isHiddenRepository(repo)) return false;
+  const searching = Boolean(query) || selectedRepoLanguage !== 'all';
+  if (searching) expandedRepoGroups.add('skillak-history');
+  const filtered = archiveRepos.filter(repo => {
+    if (repo.group === 'profile') return false;
     const searchText = `${repo.name || ''} ${repo.full_name || ''} ${repo.description || ''} ${repo.language || ''}`.toLowerCase();
-    const matchesSearch = !query || searchText.includes(query);
-    const matchesLanguage = selectedRepoLanguage === 'all' || repo.language === selectedRepoLanguage;
-    return matchesSearch && matchesLanguage;
-  }), sort);
-
-  const visibleRepoCount = publicRepos.filter(repo => !isHiddenRepository(repo)).length;
-  $('#repo-count').textContent = `عرض ${filtered.length} من ${visibleRepoCount} مستودعًا عامًا — المشاريع المميزة أولًا`;
-  if (!filtered.length) {
-    grid.innerHTML = '<div class="empty-state">لا توجد مستودعات تطابق البحث أو التصفية الحالية.</div>';
-    return;
-  }
-
-  grid.innerHTML = filtered.map((repo, index) => {
-    const previewUrl = getRepoPreviewUrl(repo);
-    const featured = isFeaturedRepository(repo);
-    const description = repo.description || 'مستودع برمجي عام — افتح المستودع لاستكشاف الملفات والكود.';
-    const updated = repo.updated_at ? new Date(repo.updated_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }) : '';
-    const language = repo.language || 'General';
-    const cover = previewUrl
-      ? `<div class="repo-cover repo-cover-live">
-          <a class="repo-cover-shot" href="${escapeHTML(previewUrl)}" target="_blank" rel="noopener noreferrer" aria-label="فتح الموقع المنشور لمشروع ${escapeHTML(repo.name)}">
-            <img class="repo-site-screenshot" src="${escapeHTML(getWebsiteScreenshotUrl(previewUrl))}" data-fallback-src="${escapeHTML(getWebsiteScreenshotFallback(previewUrl))}" alt="لقطة فعلية لموقع ${escapeHTML(repo.name)}" loading="lazy" decoding="async" onload="handleRepoScreenshotLoaded(this)" onerror="handleRepoScreenshotError(this)">
-            <span class="repo-shot-overlay"><b>معاينة الموقع الفعلية</b><small>اضغط لفتح الموقع ↗</small></span>
-          </a>
-          <span class="repo-cover-label">LIVE WEBSITE PREVIEW</span>
-          ${featured ? '<span class="repo-featured-badge">★ FEATURED</span>' : ''}
-          <span class="repo-live-badge"><i></i> LIVE</span>
-        </div>`
-      : getRepoCodeCover(repo).replace('<span class="repo-code-badge">SOURCE CODE</span>', `${featured ? '<span class="repo-featured-badge">★ FEATURED</span>' : ''}<span class="repo-code-badge">SOURCE CODE</span>`);
-    return `<article class="repo-card reveal ${featured ? 'repo-card-featured' : ''}" style="--card-order:${index}">
-      ${cover}
-      <div class="repo-content"><h4>${escapeHTML(repo.name)}</h4><p>${escapeHTML(description)}</p><div class="repo-meta"><span>${escapeHTML(language)}</span><span>★ ${repo.stargazers_count || 0}</span><span>⑂ ${repo.forks_count || 0}</span>${repo.fork ? '<span>FORK</span>' : ''}</div><div class="repo-updated">آخر تحديث: ${escapeHTML(updated)}</div>
-      <div class="repo-actions">${previewUrl ? `<a class="mini-action" href="${escapeHTML(previewUrl)}" target="_blank" rel="noopener noreferrer">فتح الموقع المنشور ↗</a>` : `<span class="repo-unpublished">لم يتم نشر موقع لهذا المستودع</span>`}<a href="${escapeHTML(repo.html_url)}" target="_blank" rel="noopener noreferrer">عرض الكود ↗</a></div></div>
-    </article>`;
-  }).join('');
+    return (!query || searchText.includes(query)) && (selectedRepoLanguage === 'all' || repo.language === selectedRepoLanguage);
+  });
+  const cmp = (a, b) => sort === 'name' ? String(a.name).localeCompare(String(b.name)) : new Date(b.updated_at || 0) - new Date(a.updated_at || 0);
+  const total = archiveRepos.filter(r => r.group !== 'profile').length;
+  const liveCount = filtered.filter(repoLive).length;
+  $('#repo-count').textContent = `عرض ${filtered.length} من ${total} مشروعًا ومستودعًا عامًا — ${liveCount} بموقع منشور يعمل`;
+  if (!filtered.length) { grid.innerHTML = '<div class="empty-state">لا توجد مستودعات تطابق البحث أو التصفية الحالية.</div>'; return; }
+  let html = '';
+  REPO_GROUPS.forEach(group => {
+    const items = filtered.filter(repo => repo.group === group.id).sort(group.id === 'skillak' ? (a, b) => new Date(b.created_at) - new Date(a.created_at) : cmp);
+    if (!items.length) return;
+    const open = !group.collapsed || searching || expandedRepoGroups.has(group.id);
+    html += `<div class="repo-group-head"><div><h4>${escapeHTML(group.title)} <small>(${items.length})</small></h4><p>${escapeHTML(group.note)}</p></div>${group.collapsed && !searching ? `<button type="button" class="repo-filter" data-repo-group-toggle="${group.id}" aria-expanded="${open}">${open ? 'إخفاء ↑' : 'عرض الكل ↓'}</button>` : ''}</div>`;
+    if (!open) return;
+    html += group.id === 'skillak' ? skillakVersionsHTML(items) : items.map((repo, index) => repoCardHTML(repo, index)).join('');
+  });
+  grid.innerHTML = html;
   observeReveals();
   setupTilt(grid);
 }
 
-function readCachedRepos() {
-  try {
-    const current = JSON.parse(localStorage.getItem(REPO_CACHE_KEY) || 'null');
-    if (Array.isArray(current?.repos) && current.repos.length) return current.repos;
-    // Migrate the previous cache when offline. A successful refresh replaces it with the complete list.
-    const previous = JSON.parse(localStorage.getItem('mha_public_repos_v1') || 'null');
-    return Array.isArray(previous?.repos) ? previous.repos : [];
-  } catch { return []; }
-}
-
 async function loadGitHubRepos() {
+  if (!document.querySelector('#repo-grid')) return;
   const grid = $('#repo-grid');
   const status = $('#repo-status');
   const refresh = $('#repo-refresh');
-  grid.innerHTML = '<div class="loading-card"><span class="loader"></span> يتم الآن تحميل جميع مستودعاتك من GitHub...</div>';
+  grid.innerHTML = '<div class="loading-card"><span class="loader"></span> يتم الآن تحميل المشاريع...</div>';
   refresh.disabled = true;
   refresh.textContent = 'جارٍ التحديث...';
-  status.textContent = 'يتم جلب مستودعات حسابك صفحةً بعد صفحة، بما فيها المستودعات المنسوخة (Forks)، ثم ترتيب المشاريع المميزة أولًا.';
   try {
-    const results = await Promise.all(GITHUB_USERS.map(fetchUserRepos));
-    const repositoryMap = new Map();
-    results.flat().forEach(repo => {
-      if (repo?.full_name) repositoryMap.set(repo.full_name.toLowerCase(), repo);
-    });
-    publicRepos = sortRepositories([...repositoryMap.values()], 'updated');
-    try { localStorage.setItem(REPO_CACHE_KEY, JSON.stringify({ savedAt: Date.now(), repos: publicRepos })); } catch {}
+    const response = await fetch(`repositories.json?v=${Date.now()}`, { cache: 'no-store' });
+    if (!response.ok) throw new Error(`repositories.json ${response.status}`);
+    const data = await response.json();
+    archiveMeta = data;
+    archiveRepos = data.repos.map(repo => ({ ...repo, owner: { login: repo.owner }, homepage: repo.live || '', has_pages: false, updated_at: repo.pushed_at }));
+    // Featured project cards match repositories by name; the Skillak platform versions never feed MAILFORGE.
+    publicRepos = archiveRepos.filter(repo => repo.group !== 'skillak');
     renderRepoFilters();
     renderGitHubRepos();
-    renderFeaturedProjects(); // Link MAILFORGE 2.0 to its repository automatically when a public match exists.
-    const featuredCount = publicRepos.filter(isFeaturedRepository).length;
-    const liveCount = publicRepos.filter(getRepoPreviewUrl).length;
-    status.textContent = `تم تحميل ${publicRepos.length} مستودعًا عامًا من GitHub — ${featuredCount} مشاريع مميزة — ${liveCount} رابط موقع منشور متاح.`;
+    renderFeaturedProjects();
+    status.textContent = `قائمة مدققة بتاريخ ${data.verifiedAt}: ${data.totalInventoried} مستودعًا عامًا في ${data.accounts.length} حسابات (${data.accounts.map(a => '@' + a).join('، ')}). النسخ المكررة بين الحسابات تظهر مرة واحدة. المستودعات الخاصة غير مدرجة.`;
   } catch (error) {
-    publicRepos = readCachedRepos();
-    if (publicRepos.length) {
-      renderRepoFilters();
-      renderGitHubRepos();
-      renderFeaturedProjects();
-      status.textContent = 'تعذر تحديث GitHub الآن؛ يتم عرض آخر قائمة مستودعات محفوظة على هذا الجهاز. اضغط تحديث لإعادة المحاولة.';
-    } else {
-      grid.innerHTML = `<div class="empty-state"><strong>تعذر الوصول إلى GitHub حاليًا.</strong><br>قد يكون السبب حد الطلبات أو اتصال الشبكة. <a href="${profile.github}" target="_blank" rel="noopener noreferrer">افتح حساب GitHub مباشرة ↗</a><br><button class="button button-secondary" id="repo-retry" type="button">إعادة المحاولة</button></div>`;
-      $('#repo-count').textContent = 'لم يتم تحميل المستودعات بعد';
-      status.textContent = 'تأكد من الاتصال بالإنترنت ثم أعد المحاولة.';
-      $('#repo-retry')?.addEventListener('click', loadGitHubRepos);
-    }
+    grid.innerHTML = `<div class="empty-state"><strong>تعذر تحميل قائمة المشاريع.</strong><br><a href="${profile.github}" target="_blank" rel="noopener noreferrer">افتح حساب GitHub مباشرة ↗</a><br><button class="button button-secondary" id="repo-retry" type="button">إعادة المحاولة</button></div>`;
+    $('#repo-count').textContent = 'لم يتم تحميل المشاريع بعد';
+    $('#repo-retry')?.addEventListener('click', loadGitHubRepos);
   } finally {
     refresh.disabled = false;
-    refresh.textContent = '↻ تحديث';
+    refresh.textContent = '↻ إعادة التحميل';
   }
 }
 
@@ -1019,6 +1032,7 @@ function setupDialogsAndControls() {
     const button = event.target.closest('[data-project-filter]'); if (!button) return;
     selectedProjectFilter = button.dataset.projectFilter; renderProjectFilters(); renderFeaturedProjects();
   });
+  if ($('#repo-search')) {
   $('#repo-search').addEventListener('input', renderGitHubRepos);
   $('#repo-sort').addEventListener('change', renderGitHubRepos);
   $('#repo-filters').addEventListener('click', event => {
@@ -1026,6 +1040,14 @@ function setupDialogsAndControls() {
     selectedRepoLanguage = button.dataset.repoLanguage; renderRepoFilters(); renderGitHubRepos();
   });
   $('#repo-refresh').addEventListener('click', loadGitHubRepos);
+  }
+  $('#repo-grid')?.addEventListener('click', event => {
+    const toggle = event.target.closest('[data-repo-group-toggle]'); if (!toggle) return;
+    const id = toggle.dataset.repoGroupToggle;
+    expandedRepoGroups.has(id) ? expandedRepoGroups.delete(id) : expandedRepoGroups.add(id);
+    renderGitHubRepos();
+    document.querySelector(`[data-repo-group-toggle="${id}"]`)?.focus();
+  });
   $('#command-close').addEventListener('click', closeDialogs);
   $('#command-dialog').addEventListener('click', event => { if (event.target === $('#command-dialog')) closeDialogs(); });
   document.addEventListener('keydown', event => {
